@@ -26,57 +26,8 @@
 <body>
     <div id="site">
         <div id="container">
-            <div id="header-wp">
-                <div id="head-top" class="clearfix">
-                    <div class="wp-inner">
-                        <a href="" title="" id="payment-link" class="fl-left">
-
-                            <span class="ti-link"></span> Hình thức thanh toán</a>
-                        <div id="main-menu-wp" class="fl-right">
-                            <ul id="main-menu" class="clearfix">
-                                <li>
-                                    <a href="?modules=blogs&action=list" title="">
-                                        <span class="ti-bookmark-alt"></span> Blog
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="?modules=contacts&action=introduce" title="">
-                                        <span class="ti-envelope"></span>
-                                        Giới thiệu</a>
-                                </li>
-                                <li>
-                                    <a href="?modules=contacts&action=contact" title="">
-                                        <span class="ti-headphone"></span>
-                                        Liên hệ</a>
-                                </li>
-
-                                <li>
-                                    <?php if (isset($_SESSION['is_login'])) {
-                                    ?>
-                                    <a href="admin" title="">
-                                        <?php if (!empty($_SESSION['fullname'])) echo $_SESSION['fullname'];?>
-                                    </a>
-                                    <?php    
-                                    } else {
-                                    ?>
-                                    <a href="?modules=users&action=index" title="">
-                                        <?php if (!empty($_SESSION['fullname'])) echo $_SESSION['fullname'];
-                                                                                        else echo "<span class=\"ti-user\">"."Tài khoản"."</span>"; ?>
-                                    </a>
-                                    <?php }; ?>
-                                </li>
-                                <?php if (!empty($_SESSION['fullname'])) { ?>
-                                <li>
-                                    <a href="?modules=users&action=logout" title="">(Đăng xuất)</a>
-                                </li>
-                                <?php }; ?>
-                                <a style="display: inline;" href=""></a>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- Bar search header -->
-                <div id="head-body" class="clearfix">
+            <!-- Bar search header -->
+            <div id="head-body" class="clearfix">
                     <div class="wp-inner">
                         <a href="?modules=home" title="" id="logo" class="fl-left"><img
                                 src="public/images/smart-mobi2.png" style="height: 60px; border-radius: 5px" /></a>
@@ -88,16 +39,38 @@
 
                         </div>
                         <div id="action-wp" class="fl-right">
-                            <div id="advisory-wp" class="fl-left">
-                                <span class="title">Tư vấn</span>
-                                <span class="phone">091.091.0910</span>
-                            </div>
+                            
                             <div id="btn-respon" class="fl-right"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                            <div id="advisory-wp" class="fl-right">
+                                <span class="title">
+                                    <?php if (isset($_SESSION['is_login'])) {
+                                    ?>
+                                    <a href="admin" title="">
+                                        <?php if (!empty($_SESSION['fullname'])) echo $_SESSION['fullname'];?>
+                                    </a>
+                                    <?php    
+                                    } else {
+                                    ?>
+                                    <a href="?modules=users&action=index" title="">
+                                        <?php if (!empty($_SESSION['fullname'])) echo $_SESSION['fullname'];
+                                                                                        else echo "<span class=\"\">"."Đăng nhập"."</span>"; ?>
+                                    </a>
+                                    <?php }; ?>                                    
+                                </span>
+                                <span class="phone">
+                                <?php if (!empty($_SESSION['fullname'])) { ?>
+                                    <a href="?modules=users&action=logout" title="">Đăng xuất</a>
+                                <?php 
+                                } else { ?>
+                                    <a href="?modules=users&action=index" title="">Đăng kí</a>
+                                <?php }; ?>
+                                </span>
+                            </div>
                             <a href="?page=cart" title="giỏ hàng" id="cart-respon-wp" class="fl-right">
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                 <span id="num">2</span>
                             </a>
-                            <div id="cart-wp" class="fl-right">
+                            <div id="cart-wp" class="fl-left">
                                 <div id="btn-cart">
                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                     <span id="num">
@@ -152,5 +125,37 @@
                     </div>
                 </div>
                 <!-- Bar search header -->
+            <div id="header-wp">
+                <div id="head-top" class="clearfix">
+                    <div class="wp-inner">
+                        
+                        <div id="main-menu-wp" class="fl-right">
+                            <ul id="main-menu" class="clearfix">
+                                <li>
+                                    <a href="?modules=blogs&action=list" title="">
+                                        <span class="ti-bookmark-alt"></span> Blog
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="?modules=contacts&action=introduce" title="">
+                                        <span class="ti-envelope"></span>
+                                        Giới thiệu</a>
+                                </li>
+                                <li>
+                                    <a href="?modules=contacts&action=contact" title="">
+                                        <span class="ti-headphone"></span>
+                                        Liên hệ</a>
+                                </li>
+
+                                <li>
+                                    
+                                </li>
+                                
+                                <a style="display: inline;" href=""></a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
 
             </div>
