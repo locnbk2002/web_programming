@@ -37,7 +37,7 @@
                         <a href="" title="">Chính sách hội viện</a>
                     </li>
                     <li>
-                        <a href="" title="">Giao hàng - lắp đặt</a>
+                        <a href="" title="">Giao hàng</a>
                     </li>
                 </ul>
             </div>
@@ -75,14 +75,6 @@
                     </li>
                     <li>
                         <a href="?page=category_product" title="">Samsung</a>
-                        <!-- <ul class="sub-menu">
-                            <li>
-                                <a href="?page=category_product" title="">Samsung Galaxy A51</a>
-                            </li>
-                            <li>
-                                <a href="?page=category_product" title="">Samsung Galaxy A71</a>
-                            </li>
-                        </ul> -->
                     </li>
                     <li>
                         <a href="?page=category_product" title="">Nokia</a>
@@ -104,9 +96,42 @@
             <li>
                 <a href="#" title>Liên hệ</a>
             </li>
+            <!-- <div id="advisory-wp" class="fl-right">
+                <span class="title">
+                    <?php if (isset($_SESSION['is_login'])) {
+                    ?>
+                        <a href="admin" title="">
+                            <?php if (!empty($_SESSION['fullname'])) echo $_SESSION['fullname']; ?>
+                        </a>
+                    <?php
+                    } else {
+                    ?>
+
+                        <a href="?modules=users&action=index" title="">
+                            <?php if (!empty($_SESSION['fullname'])) echo $_SESSION['fullname'];
+                            else echo "<span class=\"\">" . "Đăng nhập" . "</span>"; ?>
+                        </a>
+                    <?php }; ?>
+                </span>
+                <span class="phone">
+                    <?php if (!empty($_SESSION['fullname'])) { ?>
+                        <a href="?modules=users&action=logout" title="">Đăng xuất</a>
+                    <?php
+                    } else { ?>
+                        <a href="?modules=users&action=index" title="">Đăng kí</a>
+                    <?php }; ?>
+                </span>
+            </div> -->
+            <li>
+                <a href="?modules=users&action=index" title="">Đăng nhập</a>
+            </li>
+            <li>
+                <a href="?modules=users&action=index" title="">Đăng kí</a>
+            </li>
         </ul>
     </div>
 </div>
-<div id="btn-top"><img src="public/images/icon-to-top.png" alt=""/></div>
+<div id="btn-top"><img src="public/images/icon-to-top.png" alt="" /></div>
 </body>
+
 </html>

@@ -67,7 +67,7 @@ function showAction(){
 	$name = getNameCatById($id_cat);
 	$data_tmp = getAllByIDCat($id_cat);
 	$id =$id_cat;
-	$page;
+	$page = 0;
 	if(!empty($_GET['page'])){
 		$page = $_GET['page'];
 	}else{

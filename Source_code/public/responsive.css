@@ -15,7 +15,7 @@
     #site.show-respon-menu #container{ right: 250px;}
     #site.show-respon-menu #menu-respon{ right: 0;}
     #main-menu-respon .sub-menu{ display: none;}
-    #menu-respon .logo{ display: block; padding: 10px 0px; color: #07ADC6; text-align: center; text-transform: uppercase; font-family: 'Roboto Medium'; font-size: 24px; background: #F4FCFF;}
+    #menu-respon .logo{ display: block; padding: 10px 0px; color: #ffbf00; text-align: center; text-transform: uppercase; font-family: 'Roboto Medium'; font-size: 24px; background: #F4FCFF;}
     #menu-respon .logo img{ display: inline-block;}
     #main-menu-respon li{ position: relative;}
     #main-menu-respon li a{ display: block; padding: 12px 15px; color: #000; line-height: normal; text-transform: uppercase;}
