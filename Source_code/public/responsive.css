@@ -8,7 +8,7 @@
     #head-body #search-wp{ padding: 22px 0px 22px 90px;}
     #advisory-wp{ padding: 15px 10px 15px 50px;}
     #cart-wp{ margin-left: 10px;}
-    #btn-respon{ display: block; margin-left: 35px; font-size: 21px; padding: 27px 0px; color: #fff; cursor: pointer;}
+    #btn-respon{ display: block; margin-left: 35px; font-size: 21px; padding: 27px 0px; color: #666; cursor: pointer;}
     #site{ position: relative; overflow: hidden;}
     #container{ position: relative; right: 0px; transition: all .5s ease; -moz-transition: all .5s ease; -webkit-transition: all .5s ease; -o-transition: all .5s ease;}
     #menu-respon{  display: block; position: absolute; top: 0; right: -250px; width: 250px; height: 100%; background: #ddd; transition: all .5s ease; -moz-transition: all .5s ease; -webkit-transition: all .5s ease; -o-transition: all .5s ease;}

@@ -1,11 +1,14 @@
 /*HEADER*/
 #head-top {
-    background: rgb(208, 1, 27);
+    background: #ff6500;
+    /* text-align: center; */
+    justify-content: center;
 }
 
 /*26afd9*/
 #head-top #main-menu li {
     float: left;
+    text-align: center;
 }
 
 #head-top #payment-link {
@@ -33,7 +36,8 @@
 }
 
 #head-body {
-    background: rgb(237, 72, 72);
+    /* background: rgb(237, 72, 72); */
+    background: #fff0b4;
 }
 
 #head-body #logo {
@@ -51,7 +55,8 @@
 #head-body #search-wp #s {
     display: inline-block;
     width: 450px;
-    border: none;
+    /* border: none; */
+    border: 1px solid #bbbaba;
     outline: none;
     padding: 8px 20px;
     line-height: normal;
@@ -115,7 +120,8 @@
 #advisory-wp span {
     position: relative;
     display: block;
-    color: #fff;
+    /* color: #fff; */
+    color: #595959;
 }
 
 #advisory-wp .title a {
@@ -127,14 +133,16 @@
 #advisory-wp .phone a {
     font-family: 'Roboto Bold';
     font-size: 16px;
-    color: #fff;
+    /* color: #fff; */
+    color: #595959;
 }
 
 #cart-wp,
 #cart-respon-wp {
     position: relative;
     display: block;
-    color: #fff;
+    /* color: #fff; */
+    color: #595959;
     padding: 20px 0px 20px 30px;
 }
 
@@ -145,7 +153,8 @@
     height: 37px;
     line-height: 33px;
     text-align: center;
-    border: 2px solid #fff;
+    /* border: 2px solid #fff; */
+    border: 2px solid #595959;
     border-radius: 50%;
 }
 
