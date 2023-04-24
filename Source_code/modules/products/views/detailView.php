@@ -25,6 +25,7 @@
                     <div class="info fl-right">
                         <h3 class="product-name"><?php echo $data['1']['name']; ?></h3>
                         <div class="desc">
+                            <strong><?php echo $data['1']['name']; ?></strong>: <?php echo $data['1']['description'];?>
                         </div>
                         <div class="num-product">
                             <span class="title">Sản phẩm: </span>
@@ -44,7 +45,7 @@
                     <h3 class="section-title">Mô tả sản phẩm</h3>
                 </div>
                 <div class="section-detail">
-                    <?php  echo $data['1']['description']; ?>
+                    <?php  echo $data['1']['detail']; ?>
                 </div>
             </div>
             <div class="section" id="same-category-wp">
