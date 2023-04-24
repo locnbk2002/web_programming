@@ -14,7 +14,7 @@
                 <h3 class="title">Thông tin cửa hàng</h3>
                 <ul class="list-item">
                     <li>
-                        <p>Đông Hòa, Dĩ An, Bình Dương</p>
+                        <p>KTX khu A ĐHQG, Đông Hòa, Dĩ An, Bình Dương</p>
                     </li>
                     <li>
                         <p>0123498765 - 0918333444</p>
@@ -98,6 +98,14 @@
                     </li>
                     <li>
                         <a href="?page=category_product" title="">Samsung</a>
+                        <!-- <ul class="sub-menu">
+                            <li>
+                                <a href="?page=category_product" title="">Samsung Galaxy A51</a>
+                            </li>
+                            <li>
+                                <a href="?page=category_product" title="">Samsung Galaxy A71</a>
+                            </li>
+                        </ul> -->
                     </li>
                     <li>
                         <a href="?page=category_product" title="">Nokia</a>
@@ -105,10 +113,11 @@
                 </ul>
             </li>
             <li>
-                <a href="?page=category_product" title>Máy tính bảng</a>
+                <a href="?modules=carts&action=show" title>Giỏ hàng</a>
+                
             </li>
             <li>
-                <a href="?page=category_product" title>Laptop</a>
+                <a href="?modules=blogs&action=list" title>Blog</a>
             </li>
             <li>
                 <a href="?page=category_product" title>Đồ dùng sinh hoạt</a>
@@ -117,7 +126,7 @@
                 <a href="?page=blog" title>Blog</a>
             </li>
             <li>
-                <a href="?modules=contacts&action=contact" title>Liên hệ</a>
+                <a href="#" title>Liên hệ</a>
             </li>
             <div id="advisory-wp" class="fl-right">
                 <span class="title">
