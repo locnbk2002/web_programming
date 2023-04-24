@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>SMART SHOP XL</title>
+    <title>FAST SHOPPING</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./public/images/logoweb.png" type="image/x-icon">
@@ -48,9 +48,16 @@
                                 <?php
                                 } else {
                                 ?>
-                                    <a href="?modules=users&action=index" title="">
-                                        <?php if (!empty($_SESSION['fullname'])) echo $_SESSION['fullname'];
-                                        else echo "<span class=\"\">" . "Đăng nhập" . "</span>"; ?>
+                                    
+                                        <?php if (!empty($_SESSION['fullname'])){?>
+                                        <a href="?modules=home" title="">
+                                            <?php echo $_SESSION['fullname']; ?>
+                                        </a> 
+                                        <?php
+                                        } else {?>
+                                        <a href="?modules=users&action=index" title="">
+                                            <?php
+                                         echo "<span class=\"\">" . "Đăng nhập" . "</span>"; }?>
                                     </a>
                                 <?php }; ?>
                             </span>
@@ -59,7 +66,7 @@
                                     <a href="?modules=users&action=logout" title="">Đăng xuất</a>
                                 <?php
                                 } else { ?>
-                                    <a href="?modules=users&action=index" title="">Đăng kí</a>
+                                    <a href="?modules=users&action=createAccount" title="">Đăng kí</a>
                                 <?php }; ?>
                             </span>
                         </div>

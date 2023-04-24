@@ -149,7 +149,7 @@ function createAccountAction(){
 	}
 
 
-	load_view('index');
+	load_view('signup');
 }
 
 

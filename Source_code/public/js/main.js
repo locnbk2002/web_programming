@@ -1,5 +1,5 @@
 $(document).ready(function () {
-//  SLIDER
+    //  SLIDER
     var slider = $('#slider-wp .section-detail');
     slider.owlCarousel({
         autoPlay: 4500,
@@ -14,10 +14,10 @@ $(document).ready(function () {
         itemsMobile: true // itemsMobile disabled - inherit from itemsTablet option
     });
 
-//  ZOOM PRODUCT DETAIL
-    $("#zoom").elevateZoom({gallery: 'list-thumb', cursor: 'pointer', galleryActiveClass: 'active', imageCrossfade: true, loadingIcon: 'http://www.elevateweb.co.uk/spinner.gif'});
+    //  ZOOM PRODUCT DETAIL
+    $("#zoom").elevateZoom({ gallery: 'list-thumb', cursor: 'pointer', galleryActiveClass: 'active', imageCrossfade: true, loadingIcon: 'http://www.elevateweb.co.uk/spinner.gif' });
 
-//  LIST THUMB
+    //  LIST THUMB
     var list_thumb = $('#list-thumb');
     list_thumb.owlCarousel({
         navigation: true,
@@ -32,7 +32,7 @@ $(document).ready(function () {
         itemsMobile: true // itemsMobile disabled - inherit from itemsTablet option
     });
 
-//  FEATURE PRODUCT
+    //  FEATURE PRODUCT
     var feature_product = $('#feature-product-wp .list-item');
     feature_product.owlCarousel({
         autoPlay: true,
@@ -48,7 +48,7 @@ $(document).ready(function () {
         itemsMobile: [375, 1] // itemsMobile disabled - inherit from itemsTablet option
     });
 
-//  SAME CATEGORY
+    //  SAME CATEGORY
     var same_category = $('#same-category-wp .list-item');
     same_category.owlCarousel({
         autoPlay: true,
@@ -64,7 +64,7 @@ $(document).ready(function () {
         itemsMobile: [375, 1] // itemsMobile disabled - inherit from itemsTablet option
     });
 
-//  SCROLL TOP
+    //  SCROLL TOP
     $(window).scroll(function () {
         if ($(this).scrollTop() != 0) {
             $('#btn-top').stop().fadeIn(150);
@@ -73,10 +73,10 @@ $(document).ready(function () {
         }
     });
     $('#btn-top').click(function () {
-        $('body,html').stop().animate({scrollTop: 0}, 800);
+        $('body,html').stop().animate({ scrollTop: 0 }, 800);
     });
 
-// CHOOSE NUMBER ORDER
+    // CHOOSE NUMBER ORDER
     var value = parseInt($('#num-order').attr('value'));
     $('#plus').click(function () {
         value++;
@@ -91,10 +91,10 @@ $(document).ready(function () {
         update_href(value);
     });
 
-//  MAIN MENU
+    //  MAIN MENU
     $('#category-product-wp .list-item > li').find('.sub-menu').after('<i class="fa fa-angle-right arrow" aria-hidden="true"></i>');
 
-//  TAB
+    //  TAB
     tab();
 
     //  EVEN MENU RESPON
@@ -118,17 +118,17 @@ $(document).ready(function () {
         }
     });
 
-//  MENU RESPON
+    //  MENU RESPON
     $('#main-menu-respon li .sub-menu').after('<span class="fa fa-angle-right arrow"></span>');
     $('#main-menu-respon li .arrow').click(function () {
         if ($(this).parent('li').hasClass('open')) {
             $(this).parent('li').removeClass('open');
         } else {
 
-//            $('.sub-menu').slideUp();
-//            $('#main-menu-respon li').removeClass('open');
+            //            $('.sub-menu').slideUp();
+            //            $('#main-menu-respon li').removeClass('open');
             $(this).parent('li').addClass('open');
-//            $(this).parent('li').find('.sub-menu').slideDown();
+            //            $(this).parent('li').find('.sub-menu').slideDown();
         }
     });
 });

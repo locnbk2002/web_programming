@@ -1,16 +1,5 @@
 <div id="sidebar" class="fl-left">
     <ul id="sidebar-menu">
-       <li class="nav-item">
-            <a href="" title="" class="nav-link nav-toggle">
-                <span class="fa fa-map icon"></span>
-                <span class="title">Quản lý đóng góp</span>
-            </a>
-            <ul class="sub-menu">
-                <li class="nav-item">
-                    <a href="?modules=home" title="" class="nav-link aha">Danh sách</a>
-                </li>
-            </ul> 
-        </li>
         <li class="nav-item">
             <a href="" title="" class="nav-link nav-toggle">
                 <span class="fa fa-pencil-square-o icon"></span>
@@ -87,24 +76,7 @@
                 </li>
             </ul>
         </li>
-        <li class="nav-item">
-            <a href="#" title="" class="nav-link nav-toggle">
-                <span class="fa fa-cubes icon"></span>
-                <span class="title">Thống kê</span>
-            </a>
-            <ul class="sub-menu">
-                <li class="nav-item">
-                <li class="nav-item">
-                    <a href="?modules=home" title="" class="nav-link aha">Thống kê hóa đơn</a>
-                </li>
-                <li class="nav-item">
-                    <a href="?modules=home" title="" class="nav-link aha">Thống kê sản phẩm bán chạy</a>
-                </li>
-                <li class="nav-item">
-                    <a href="?modules=home" title="" class="nav-link aha">Thống kê sản phẩm mới</a>
-                </li>
-            </ul>
-        </li>
+        
         <li class="nav-item">
             <a href="#" title="" class="nav-link nav-toggle">
                 <i class="fa fa-sliders" aria-hidden="true"></i>

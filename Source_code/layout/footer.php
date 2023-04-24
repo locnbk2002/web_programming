@@ -2,8 +2,8 @@
     <div id="foot-body">
         <div class="wp-inner clearfix">
             <div class="block" id="info-company">
-                <h3 class="title">SMARTSHOP XL</h3>
-                <p class="desc">SMARTSHOP XL luôn cung cấp luôn là sản phẩm chính hãng có thông tin rõ ràng, chính sách ưu đãi cực lớn cho khách hàng có thẻ thành viên.</p>
+                <h3 class="title">FAST SHOPPING</h3>
+                <p class="desc">FAST SHOPPING luôn cung cấp luôn là sản phẩm chính hãng có thông tin rõ ràng, chính sách ưu đãi cực lớn cho khách hàng có thẻ thành viên.</p>
                 <div id="payment">
                     <div class="thumb">
                         <img src="public/images/img-foot.png" alt="">
@@ -14,13 +14,13 @@
                 <h3 class="title">Thông tin cửa hàng</h3>
                 <ul class="list-item">
                     <li>
-                        <p>KTX khu A ĐHQG, Đông Hòa, Dĩ An, Bình Dương</p>
+                        <p>Đông Hòa, Dĩ An, Bình Dương</p>
                     </li>
                     <li>
                         <p>0123498765 - 0918333444</p>
                     </li>
                     <li>
-                        <p>smartshopXL@gmail.com</p>
+                        <p>example@fastshopping.com</p>
                     </li>
                 </ul>
             </div>
@@ -34,10 +34,10 @@
                         <a href="" title="">Chính sách bảo hành - đổi trả</a>
                     </li>
                     <li>
-                        <a href="" title="">Chính sách hội viện</a>
+                        <a href="" title="">Chính sách hội viên</a>
                     </li>
                     <li>
-                        <a href="" title="">Giao hàng</a>
+                        <a href="" title="">Dịch vụ giao hàng</a>
                     </li>
                 </ul>
             </div>
@@ -55,17 +55,40 @@
     </div>
     <div id="foot-bot">
         <div class="wp-inner">
-            <p id="copyright">© Bản quyền thuộc về XL | SMARTSHOP XL</p>
+            <p id="copyright">© Bản quyền thuộc về FAST SHOPPING</p>
         </div>
     </div>
 </div>
 </div>
 <div id="menu-respon">
-    <a href="?page=home" title="" class="logo">SMARTSHOP XL</a>
+    <a href="?page=home" title="" class="logo">FAST SHOPPING</a>
     <div id="menu-respon-wp">
         <ul class="" id="main-menu-respon">
             <li>
                 <a href="?page=home" title>Trang chủ</a>
+            </li>
+            <li>
+                <?php if (isset($_SESSION['is_login'])) {
+                    ?>
+                    <a href="admin" title="">
+                        <?php if (!empty($_SESSION['fullname'])) echo $_SESSION['fullname']; ?>
+                    <?php
+                    } else {
+                    ?>
+
+                    <a href="?modules=users&action=index" title="">
+                            <?php if (!empty($_SESSION['fullname'])) echo $_SESSION['fullname'];
+                            else echo "<span class=\"\">" . "Đăng nhập" . "</span>"; ?>
+                    </a>
+                <?php }; ?>
+            </li>
+            <li>
+                <?php if (!empty($_SESSION['fullname'])) { ?>
+                    <a href="?modules=users&action=logout" title="">Đăng xuất</a>
+                <?php
+                } else { ?>
+                    <a href="?modules=users&action=createAccount" title="">Đăng kí</a>
+                <?php }; ?>
             </li>
             <li>
                 <a href="?page=category_product" title>Điện thoại</a>
@@ -94,9 +117,9 @@
                 <a href="?page=blog" title>Blog</a>
             </li>
             <li>
-                <a href="#" title>Liên hệ</a>
+                <a href="?modules=contacts&action=contact" title>Liên hệ</a>
             </li>
-            <!-- <div id="advisory-wp" class="fl-right">
+            <div id="advisory-wp" class="fl-right">
                 <span class="title">
                     <?php if (isset($_SESSION['is_login'])) {
                     ?>
@@ -121,13 +144,7 @@
                         <a href="?modules=users&action=index" title="">Đăng kí</a>
                     <?php }; ?>
                 </span>
-            </div> -->
-            <li>
-                <a href="?modules=users&action=index" title="">Đăng nhập</a>
-            </li>
-            <li>
-                <a href="?modules=users&action=index" title="">Đăng kí</a>
-            </li>
+            </div>
         </ul>
     </div>
 </div>
