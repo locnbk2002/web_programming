@@ -2,12 +2,12 @@
 
 function getProductById($id){
 	
-	return db_fetch_row("SELECT * FROM `tbl_product` WHERE `id`='$id'");
+	return db_fetch_row("SELECT * FROM `products` WHERE `id`='$id'");
 }
 
 function getAllByIDCat($id){
 
-	return db_fetch_array("SELECT * FROM `tbl_product` WHERE `id_category`='$id'");
+	return db_fetch_array("SELECT * FROM `products` WHERE `cat_id`='$id'");
 }
 
 function getNameCatById($id){
@@ -17,13 +17,13 @@ function getNameCatById($id){
 
 function getProductById_cat($id_cat){
 
-	return db_fetch_array("SELECT * FROM `tbl_product` WHERE `id_category`='$id_cat'");
+	return db_fetch_array("SELECT * FROM `products` WHERE `cat_id`='$id_cat'");
 }
 
 function getIDCatByIDProduct($id){
 
-	$data = db_fetch_row("SELECT * FROM `tbl_product` WHERE `id`='$id'");
-	return $data['id_category'];
+	$data = db_fetch_row("SELECT * FROM `products` WHERE `id`='$id'");
+	return $data['cat_id'];
 }
 
 function getAllCommentByIDProduct($id) {

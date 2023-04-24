@@ -47,3 +47,7 @@ function getAllSlider(){
 	return db_fetch_array("SELECT * FROM `tbl_slider`");
 
 }
+
+function getAllJeans() {
+	return db_fetch_array("SELECT * FROM `products` LIMIT 8");
+}
