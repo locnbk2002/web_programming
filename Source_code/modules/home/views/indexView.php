@@ -27,10 +27,10 @@
                                 </a>
                                 <a href="?modules=products&controllers=index&action=detail&id=<?php echo $value['id']; ?>" title="" class="product-name"><?php echo $value['name']; ?></a>
                                 <div class="price">
-                                    <span style="display: block;" class="new"><?php echo $value['promotional_price'] . '.VND'; ?></span>
+                                    <span style="display: block;" class="new"><?php echo $value['promotional_price'] . ' VNĐ'; ?></span>
                                     <!-- <span style="display: block;" class="old"> -->
                                     <?php
-                                    // echo $value['price'].'.VND'; 
+                                    // echo $value['price'].' VNĐ'; 
                                     ?>
                                     <!-- </span> -->
                                 </div>

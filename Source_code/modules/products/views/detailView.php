@@ -25,12 +25,13 @@
                     <div class="info fl-right">
                         <h3 class="product-name"><?php echo $data['1']['name']; ?></h3>
                         <div class="desc">
+                            <strong><?php echo $data['1']['name']; ?></strong>: <?php echo $data['1']['description'];?>
                         </div>
                         <div class="num-product">
                             <span class="title">Sản phẩm: </span>
                             <span class="status" style="background-color: green; color: white; border-radius: 5px;"><?php echo $data['1']['status']; ?></span>
                         </div>
-                        <p class="price"><?php echo $data['1']['price'].' .VNĐ' ;?></p>
+                        <p class="price"><?php echo $data['1']['price'].'  VNĐ' ;?></p>
                         <div id="num-order-wp">
                             <p style="display: inline-block; ">Số lượng : </p>
                             <input type="text" name="" style="width: 40px;text-align: center;" value="1">
@@ -44,7 +45,7 @@
                     <h3 class="section-title">Mô tả sản phẩm</h3>
                 </div>
                 <div class="section-detail">
-                    <?php  echo $data['1']['description']; ?>
+                    <?php  echo $data['1']['detail']; ?>
                 </div>
             </div>
             <div class="section" id="same-category-wp">
@@ -61,8 +62,8 @@
                             </a>
                             <a href="?modules=products&controllers=index&action=detail&id=<?php echo $value['id']; ?>" title="" class="product-name"><?php echo $value['name']; ?></a>
                             <div class="price">
-                                <span style="display: block;" class="new"><?php echo $value['price'].'.VND'; ?></span>
-                                <span style="display: block;" class="old"><?php echo $value['price'].'.VND'; ?></span>
+                                <span style="display: block;" class="new"><?php echo $value['price'].' VNĐ'; ?></span>
+                                <span style="display: block;" class="old"><?php echo $value['price'].' VNĐ'; ?></span>
                             </div>
                             <div class="action clearfix">
                                <a href="<?php $id = $value['id']; if(!empty($_SESSION['id_customer'])) $urlll ="?modules=carts&controllers=index&action=add&id=$id" ;else $urlll ="?modules=users&controllers=index&action=index&report=1" ;echo $urlll;?> " title="" class="add-cart fl-left">Thêm giỏ hàng</a>
