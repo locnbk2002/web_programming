@@ -18,8 +18,9 @@ function indexAction() {
 	$laptops = getAllLaptop();
 	$hots = getAllHot();
 	$sliders = getAllSlider();
+	$jeans = getAllJeans();
 	$_SESSION['product_hot'] = $hots;
-	$data = [ $smartphones, $tablets, $laptops, $hots, $sliders];
+	$data = [ $smartphones, $tablets, $laptops, $hots, $sliders, $jeans];
 	load_view('index',$data);
 }
 

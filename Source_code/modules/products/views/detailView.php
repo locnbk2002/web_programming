@@ -25,19 +25,12 @@
                     <div class="info fl-right">
                         <h3 class="product-name"><?php echo $data['1']['name']; ?></h3>
                         <div class="desc">
-                            <p>Màn hình :<?php echo $data['1']['screen']; ?></p>
-                            <p>Hệ điều hành :<?php echo $data['1']['operating_system']; ?></p>
-                            <p>Camera sau :<?php echo $data['1']['rear_camera']; ?></p>
-                            <p>Camera trước :<?php echo $data['1']['front_camera']; ?></p>
-                            <p>CPU :<?php echo $data['1']['cpu'] ;?></p>
-                            <p>RAM :<?php echo $data['1']['ram']; ?></p>
-                            <p>Bộ nhớ :<?php echo $data['1']['memory'] ;?></p>     
                         </div>
                         <div class="num-product">
                             <span class="title">Sản phẩm: </span>
                             <span class="status" style="background-color: green; color: white; border-radius: 5px;"><?php echo $data['1']['status']; ?></span>
                         </div>
-                        <p class="price"><?php echo $data['1']['promotional_price'].' .VNĐ' ;?></p>
+                        <p class="price"><?php echo $data['1']['price'].' .VNĐ' ;?></p>
                         <div id="num-order-wp">
                             <p style="display: inline-block; ">Số lượng : </p>
                             <input type="text" name="" style="width: 40px;text-align: center;" value="1">
@@ -68,7 +61,7 @@
                             </a>
                             <a href="?modules=products&controllers=index&action=detail&id=<?php echo $value['id']; ?>" title="" class="product-name"><?php echo $value['name']; ?></a>
                             <div class="price">
-                                <span style="display: block;" class="new"><?php echo $value['promotional_price'].'.VND'; ?></span>
+                                <span style="display: block;" class="new"><?php echo $value['price'].'.VND'; ?></span>
                                 <span style="display: block;" class="old"><?php echo $value['price'].'.VND'; ?></span>
                             </div>
                             <div class="action clearfix">

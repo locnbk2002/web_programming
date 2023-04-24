@@ -1,8 +1,10 @@
--- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
+CREATE DATABASE  IF NOT EXISTS `store` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `store`;
+-- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
 --
--- Host: localhost    Database: store
+-- Host: 127.0.0.1    Database: store
 -- ------------------------------------------------------
--- Server version	8.0.29
+-- Server version	8.0.32
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,6 +18,42 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `products`
+--
+
+DROP TABLE IF EXISTS `products`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `products` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `cat_id` int NOT NULL,
+  `brand_id` int NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` int NOT NULL,
+  `quantity` int NOT NULL,
+  `status` enum('còn hàng','hết hàng','hàng sắp về') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `product_ibfk_1_idx` (`brand_id`) /*!80000 INVISIBLE */,
+  KEY `product_ibfk_2_idx` (`cat_id`),
+  CONSTRAINT `products_ibfk_1` FOREIGN KEY (`brand_id`) REFERENCES `tbl_brand` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  CONSTRAINT `products_ibfk_2` FOREIGN KEY (`cat_id`) REFERENCES `tbl_category` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `products`
+--
+
+LOCK TABLES `products` WRITE;
+/*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` VALUES (1,15,9,'Quần jeans nữ Skinny ALE 60104SK','SID52819',479000,10,'còn hàng','<ul> <li style=\"text-align: justify\"> <strong>Quần jeans nữ Skinny ALE 60104SK </strong>được thiết kế với kiểu dáng ống ôm thanh lịch, luôn được các bạn gái yêu thích trong mọi phong cách thời trang </li> <li style=\"text-align: justify\"> Quần có phối túi hai bên và phía sau tiện dụng cho bạn gái đựng những món cần thiết như điện thoại, tiền, giấy tờ,... </li> <li style=\"text-align: justify\"> Sản phẩm được thiết kế dáng trơn đơn giản phối thêm những mảng sáng tối độc đáo tạo nét cá tính rất riêng của con gái </li> <li style=\"text-align: justify\"> Màu xanh tươi sáng, nhẹ nhàng mà thanh lịch thời trang dễ phối đồ, tạo nhiều style cá tính riêng cho người mặc </li> <li style=\"text-align: justify\"> Chất liệu jean dày dặn, bền chắc cho bạn yên tâm khi hoạt động mạnh, có khả năng thấm hút mồ hôi </li> <li style=\"text-align: justify\"> Bạn có thể tạo nhiều phong cách riêng khi kết hợp với áo thun, áo croptop, áo sơ mi cột eo, phụ kiện,... </li> </ul>','public/uploads/jeans1.jpg');
+/*!40000 ALTER TABLE `products` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tbl_admin`
 --
 
@@ -24,13 +62,13 @@ DROP TABLE IF EXISTS `tbl_admin`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_admin` (
   `admin_id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `fullname` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `phone` varchar(10) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `role` enum('admin','sale','manager') NOT NULL,
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fullname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role` enum('admin','sale','manager') COLLATE utf8mb4_unicode_ci NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`admin_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -55,12 +93,12 @@ DROP TABLE IF EXISTS `tbl_blog`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_blog` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title` text NOT NULL,
-  `content` text NOT NULL,
-  `user` varchar(255) NOT NULL,
-  `create_date` varchar(255) NOT NULL,
-  `description` text NOT NULL,
-  `image` varchar(255) NOT NULL,
+  `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `create_date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=170 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -84,14 +122,14 @@ DROP TABLE IF EXISTS `tbl_brand`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_brand` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `code` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `description` text NOT NULL,
-  `create_date` varchar(255) NOT NULL,
-  `user` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `create_date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,7 +138,7 @@ CREATE TABLE `tbl_brand` (
 
 LOCK TABLES `tbl_brand` WRITE;
 /*!40000 ALTER TABLE `tbl_brand` DISABLE KEYS */;
-INSERT INTO `tbl_brand` VALUES (1,'Sam Sung ','###   SamSung   ###    ','public/uploads/samsung.png','<p><b>Tập đo&agrave;n Samsung</b>&nbsp;(<a href=\"https://vi.wikipedia.org/wiki/Ti%E1%BA%BFng_Tri%E1%BB%81u_Ti%C3%AAn\" title=\"Tiếng Triều Tiên\">tiếng H&agrave;n</a>: 삼성,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Romaja_qu%E1%BB%91c_ng%E1%BB%AF\" title=\"Romaja quốc ngữ\">Romaja</a>: &quot;Samseong&quot;,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Phi%C3%AAn_%C3%A2m_qu%E1%BB%91c_t%E1%BA%BF\" title=\"Phiên âm quốc tế\">phi&ecirc;n &acirc;m chuẩn</a>: &quot;Xam-x&acirc;ng&quot;,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Hanja\" title=\"Hanja\">Hanja</a>: 三星;&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Phi%C3%AAn_%C3%A2m_H%C3%A1n-Vi%E1%BB%87t\" title=\"Phiên âm Hán-Việt\">phi&ecirc;n &acirc;m H&aacute;n-Việt</a>: &quot;<a href=\"https://vi.wikipedia.org/wiki/Sao\" title=\"Sao\">Tam Tinh</a>&quot; &ndash; c&oacute; nghĩa l&agrave; &quot;<a href=\"https://vi.wikipedia.org/wiki/3_(s%E1%BB%91)\" title=\"3 (số)\">3</a>&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Sao\" title=\"Sao\">ng&ocirc;i sao</a>&quot;) &ndash; l&agrave; một&nbsp;<a href=\"https://vi.wikipedia.org/wiki/T%E1%BA%ADp_%C4%91o%C3%A0n_%C4%91a_qu%E1%BB%91c_gia\" title=\"Tập đoàn đa quốc gia\">tập đo&agrave;n đa quốc gia</a>&nbsp;khổng lồ của&nbsp;<a href=\"https://vi.wikipedia.org/wiki/H%C3%A0n_Qu%E1%BB%91c\" title=\"Hàn Quốc\">H&agrave;n Quốc</a>&nbsp;c&oacute;&nbsp;<a href=\"https://vi.wikipedia.org/wiki/V%C4%83n_ph%C3%B2ng\" title=\"Văn phòng\">tổng h&agrave;nh dinh</a>&nbsp;được đặt tại khu phức hợp&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Samsung_Town\" title=\"Samsung Town\">Samsung Town</a>,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Qu%E1%BA%ADn\" title=\"Quận\">quận</a>&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Seocho-gu\" title=\"Seocho-gu\">Seocho-gu</a>,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Th%C3%A0nh_ph%E1%BB%91\" title=\"Thành phố\">th&agrave;nh phố</a>&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Seoul\" title=\"Seoul\">Seoul</a>.&nbsp;<a href=\"https://vi.wikipedia.org/wiki/T%E1%BA%ADp_%C4%91o%C3%A0n\" title=\"Tập đoàn\">Tập đo&agrave;n</a>&nbsp;n&agrave;y hiện sở hữu rất nhiều&nbsp;<a href=\"https://vi.wikipedia.org/wiki/C%C3%B4ng_ty_l%C3%A9p_v%E1%BB%91n\" title=\"Công ty lép vốn\">c&ocirc;ng ty con</a>,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/H%E1%BB%87_th%E1%BB%91ng\" title=\"Hệ thống\">chuỗi hệ thống</a>&nbsp;<a href=\"https://vi.wikipedia.org/wiki/B%C3%A1n_h%C3%A0ng\" title=\"Bán hàng\">b&aacute;n h&agrave;ng</a>&nbsp;c&ugrave;ng c&aacute;c&nbsp;<a href=\"https://vi.wikipedia.org/wiki/V%C4%83n_ph%C3%B2ng\" title=\"Văn phòng\">văn ph&ograve;ng đại diện</a>&nbsp;tr&ecirc;n phạm vi&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Tr%C3%A1i_%C4%90%E1%BA%A5t\" title=\"Trái Đất\">to&agrave;n cầu</a>, hầu hết đều đang hoạt động dưới&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Nh%C3%A3n_hi%E1%BB%87u\" title=\"Nhãn hiệu\">t&ecirc;n</a>&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Th%C6%B0%C6%A1ng_hi%E1%BB%87u\" title=\"Thương hiệu\">thương hiệu</a>&nbsp;Samsung, đ&acirc;y l&agrave;&nbsp;<a href=\"https://vi.wikipedia.org/wiki/T%E1%BA%ADp_%C4%91o%C3%A0n\" title=\"Tập đoàn\">tập đo&agrave;n</a>&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Chaebol\" title=\"Chaebol\">T&agrave;i phiệt</a>&nbsp;<a href=\"https://vi.wikipedia.org/wiki/%C4%90a_ng%C3%A0nh\" title=\"Đa ngành\">đa ng&agrave;nh</a>&nbsp;(<a href=\"https://vi.wikipedia.org/wiki/Chaebol\" title=\"Chaebol\">Chaebol</a>) c&oacute; quy m&ocirc; v&agrave; tầm ảnh hưởng đến&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Kinh_t%E1%BA%BF_H%C3%A0n_Qu%E1%BB%91c\" title=\"Kinh tế Hàn Quốc\">nền kinh tế</a>&nbsp;lớn nhất tại&nbsp;<a href=\"https://vi.wikipedia.org/wiki/H%C3%A0n_Qu%E1%BB%91c\" title=\"Hàn Quốc\">H&agrave;n Quốc</a>&nbsp;n&oacute;i ri&ecirc;ng v&agrave; đồng thời cũng l&agrave; một trong những&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Th%C6%B0%C6%A1ng_hi%E1%BB%87u\" title=\"Thương hiệu\">thương hiệu</a>&nbsp;<a href=\"https://vi.wikipedia.org/wiki/C%C3%B4ng_ngh%E1%BB%87\" title=\"Công nghệ\">c&ocirc;ng nghệ</a>&nbsp;đắt gi&aacute; bậc nhất tr&ecirc;n&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Th%E1%BA%BF_gi%E1%BB%9Bi\" title=\"Thế giới\">thế giới</a>&nbsp;hiện nay</p>\r\n','28/11/2022','admin '),(2,'Apple','###   Apple   ###','public/uploads/apple.png','<p><b>Apple Inc.</b>&nbsp;l&agrave; một tập đo&agrave;n c&ocirc;ng nghệ của&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Hoa_K%E1%BB%B3\" title=\"Hoa Kỳ\">Mỹ</a>&nbsp;c&oacute; trụ sở ch&iacute;nh đặt tại&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Cupertino,_California\" title=\"Cupertino, California\">Cupertino, California</a>. Apple được th&agrave;nh lập ng&agrave;y&nbsp;<a href=\"https://vi.wikipedia.org/wiki/1_th%C3%A1ng_4\" title=\"1 tháng 4\">1 th&aacute;ng 4</a>&nbsp;năm&nbsp;<a href=\"https://vi.wikipedia.org/wiki/1976\" title=\"1976\">1976</a>&nbsp;dưới t&ecirc;n&nbsp;<b>Apple Computer, Inc.</b>, v&agrave; đổi t&ecirc;n th&agrave;nh&nbsp;<b>Apple Inc.</b>&nbsp;v&agrave;o đầu năm&nbsp;<a href=\"https://vi.wikipedia.org/wiki/2007\" title=\"2007\">2007</a>. Với lượng sản phẩm b&aacute;n ra to&agrave;n cầu h&agrave;ng năm l&agrave; 13,9 tỷ&nbsp;<a href=\"https://vi.wikipedia.org/wiki/%C4%90%C3%B4_la_M%E1%BB%B9\" title=\"Đô la Mỹ\">đ&ocirc; la Mỹ</a>&nbsp;(<a href=\"https://vi.wikipedia.org/wiki/2005\" title=\"2005\">2005</a>), 74 triệu thiết bị iPhone được b&aacute;n ra&nbsp;<b>chỉ trong một qu&yacute; 4</b>&nbsp;năm 2014 v&agrave; c&oacute; hơn 98.000 nh&acirc;n vi&ecirc;n ở nhiều quốc gia, sản phẩm l&agrave;&nbsp;<a href=\"https://vi.wikipedia.org/wiki/M%C3%A1y_t%C3%ADnh_c%C3%A1_nh%C3%A2n\" title=\"Máy tính cá nhân\">m&aacute;y t&iacute;nh c&aacute; nh&acirc;n</a>, phần mềm, phần cứng, thiết bị nghe nhạc v&agrave; nhiều thiết bị đa phương tiện kh&aacute;c. Sản phẩm nổi tiếng nhất l&agrave; m&aacute;y t&iacute;nh&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Apple_Macintosh\" title=\"Apple Macintosh\">Apple Macintosh</a>, m&aacute;y nghe nhạc&nbsp;<a href=\"https://vi.wikipedia.org/wiki/IPod\" title=\"IPod\">iPod</a>&nbsp;(2001), chương tr&igrave;nh nghe nhạc&nbsp;<a href=\"https://vi.wikipedia.org/wiki/ITunes\" title=\"ITunes\">iTunes</a>,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/IPhone\" title=\"IPhone\">điện thoại iPhone</a>&nbsp;(2007),&nbsp;<a href=\"https://vi.wikipedia.org/wiki/IPad\" title=\"IPad\">m&aacute;y t&iacute;nh bảng iPad</a>&nbsp;(2010) v&agrave;&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Apple_Watch\" title=\"Apple Watch\">đồng hồ th&ocirc;ng minh Apple Watch</a>&nbsp;(<a href=\"https://vi.wikipedia.org/wiki/2014\" title=\"2014\">2014</a>) hoạt động tr&ecirc;n nhiều&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Qu%E1%BB%91c_gia\" title=\"Quốc gia\">quốc gia</a>&nbsp;tr&ecirc;n&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Th%E1%BA%BF_gi%E1%BB%9Bi\" title=\"Thế giới\">thế giới</a>.</p>\r\n','28/11/2022','admin'),(3,'Xiaomi','###   Xiaomi   ### ','public/uploads/xiaomi.png','<p>Xiaomi được th&agrave;nh lập v&agrave;o ng&agrave;y&nbsp;<strong>6/4/2010</strong>&nbsp;bởi 7 đối t&aacute;c, trong đ&oacute; c&oacute; ba tổ chức đầu tư lớn l&agrave; tập đo&agrave;n&nbsp;<strong>Temasek</strong>&nbsp;từ Singapore, quỹ&nbsp;<strong>IDG Capital&nbsp;</strong>v&agrave;&nbsp;<strong>Qiming Venture Partners</strong>&nbsp;đến từ Trung Quốc. Đ&acirc;y l&agrave; một tập đo&agrave;n chuy&ecirc;n thiết kế, ph&aacute;t triển v&agrave; b&aacute;n c&aacute;c mẫu smartphone, ứng dụng, đồ điện tử ti&ecirc;u d&ugrave;ng cho thị trường Trung Quốc.</p>\r\n','28/11/2022','admin'),(4,'Nokia','###   Nokia   ###','public/uploads/nokia.png','<p><b>Nokia Corporation</b>&nbsp;(pronunciation&nbsp;<a href=\"https://vi.wikipedia.org/w/index.php?title=Tr%E1%BB%A3_gi%C3%BAp:Pronunciation&amp;action=edit&amp;redlink=1\" title=\"Trợ giúp:Pronunciation (trang chưa được viết)\">/&#39;nɔkiɑ/</a>) (<a href=\"https://vi.wikipedia.org/w/index.php?title=Nasdaq_Nordic&amp;action=edit&amp;redlink=1\" title=\"Nasdaq Nordic (trang chưa được viết)\">Nasdaq Helsinki</a>:&nbsp;<a href=\"http://www.nasdaqomxnordic.com/aktier/microsite?languageId=1&amp;Instrument=HEX24311\" rel=\"nofollow\">NOK1V</a>,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/S%E1%BB%9F_giao_d%E1%BB%8Bch_ch%E1%BB%A9ng_kho%C3%A1n_New_York\" title=\"Sở giao dịch chứng khoán New York\">NYSE</a>:&nbsp;<a href=\"https://www.nyse.com/quote/XNYS:NOK\" rel=\"nofollow\">NOK</a>,&nbsp;<a href=\"https://vi.wikipedia.org/w/index.php?title=S%C3%A0n_giao_d%E1%BB%8Bch_ch%E1%BB%A9ng_kho%C3%A1n_Frankfurt&amp;action=edit&amp;redlink=1\" title=\"Sàn giao dịch chứng khoán Frankfurt (trang chưa được viết)\">FWB</a>:&nbsp;<a href=\"http://deutsche-boerse.com/dbag/dispatch/en/isg/gdb_navigation/home/Content_Files/20_overview_pages/cp_sp_overview_xetra.htm?action=ISGFormProcessingAction&amp;eventSubmit_doSimplestocksearch=true&amp;wp=NOA3&amp;x=0&amp;y=0\" rel=\"nofollow\">NOA3</a>) l&agrave; một tập đo&agrave;n đa quốc gia c&oacute; trụ sở tại&nbsp;<a href=\"https://vi.wikipedia.org/w/index.php?title=Keilaniemi&amp;action=edit&amp;redlink=1\" title=\"Keilaniemi (trang chưa được viết)\">Keilaniemi</a>,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Espoo\" title=\"Espoo\">Espoo</a>, một&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Th%C3%A0nh_ph%E1%BB%91\" title=\"Thành phố\">th&agrave;nh phố</a>&nbsp;l&aacute;ng giềng của thủ đ&ocirc;&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Helsinki\" title=\"Helsinki\">Helsinki</a>,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Ph%E1%BA%A7n_Lan\" title=\"Phần Lan\">Phần Lan</a>. Nokia tập trung v&agrave;o c&aacute;c sản phẩm viễn th&ocirc;ng kh&ocirc;ng d&acirc;y v&agrave; cố định, với 129.746 nh&acirc;n vi&ecirc;n l&agrave;m việc ở 120&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Qu%E1%BB%91c_gia\" title=\"Quốc gia\">quốc gia</a>, b&aacute;n sản phẩm ở hơn 150 quốc gia tr&ecirc;n to&agrave;n cầu v&agrave; đạt doanh số 41 tỷ&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Euro\" title=\"Euro\">euro</a>&nbsp;với lợi tức 1,2 tỷ năm 2009.<sup id=\"cite_ref-AR2009_3-0\"><a href=\"https://vi.wikipedia.org/wiki/Nokia#cite_note-AR2009-3\">[3]</a></sup><sup id=\"cite_ref-Nokia_in_brief_4-0\"><a href=\"https://vi.wikipedia.org/wiki/Nokia#cite_note-Nokia_in_brief-4\">[4]</a></sup>&nbsp;Đ&acirc;y l&agrave; nh&agrave; sản xuất&nbsp;<a href=\"https://vi.wikipedia.org/wiki/%C4%90i%E1%BB%87n_tho%E1%BA%A1i_di_%C4%91%E1%BB%99ng\" title=\"Điện thoại di động\">điện thoại di động</a>&nbsp;lớn nhất thế giới với thị phần to&agrave;n cầu sản phẩm n&agrave;y chiếm khoảng 40% trong qu&yacute; 2 năm 2008, tăng so với mức 38% qu&yacute; 2 năm 2007 v&agrave; tăng từ tỷ lệ 39% li&ecirc;n tục.<sup id=\"cite_ref-Quarter_5-0\"><a href=\"https://vi.wikipedia.org/wiki/Nokia#cite_note-Quarter-5\">[5]</a></sup></p>\r\n\r\n<p>Ng&agrave;y&nbsp;<a href=\"https://vi.wikipedia.org/wiki/3_th%C3%A1ng_9\" title=\"3 tháng 9\">3 th&aacute;ng 9</a>&nbsp;năm&nbsp;<a href=\"https://vi.wikipedia.org/wiki/2013\" title=\"2013\">2013</a>, Nokia c&ocirc;ng bố sẽ b&aacute;n lại bộ phận Thiết bị v&agrave; Dịch vụ cho&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Microsoft\" title=\"Microsoft\">Microsoft</a>&nbsp;với gi&aacute; 5,4 tỷ Euro (7.17 tỷ USD).<sup id=\"cite_ref-6\"><a href=\"https://vi.wikipedia.org/wiki/Nokia#cite_note-6\">[6]</a></sup><sup id=\"cite_ref-verge-msnokia_7-0\"><a href=\"https://vi.wikipedia.org/wiki/Nokia#cite_note-verge-msnokia-7\">[7]</a></sup><sup id=\"cite_ref-mswsj-noki_8-0\"><a href=\"https://vi.wikipedia.org/wiki/Nokia#cite_note-mswsj-noki-8\">[8]</a></sup>&nbsp;Ng&agrave;y&nbsp;<a href=\"https://vi.wikipedia.org/wiki/4_th%C3%A1ng_12\" title=\"4 tháng 12\">4 th&aacute;ng 12</a>&nbsp;năm&nbsp;<a href=\"https://vi.wikipedia.org/wiki/2013\" title=\"2013\">2013</a>,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Li%C3%AAn_minh_ch%C3%A2u_%C3%82u\" title=\"Liên minh châu Âu\">Li&ecirc;n minh ch&acirc;u &Acirc;u</a>&nbsp;đ&atilde; ch&iacute;nh thức k&yacute; v&agrave;o bản chấp thuận thương vụ mua lại n&agrave;y của Microsoft. Sau khi đồng &yacute; b&aacute;n Nokia về Microsoft,&nbsp;<a href=\"https://vi.wikipedia.org/w/index.php?title=CEO_Stephen_Elop&amp;action=edit&amp;redlink=1\" title=\"CEO Stephen Elop (trang chưa được viết)\">CEO Stephen Elop</a>&nbsp;của Nokia đ&atilde; nộp đơn từ chức v&agrave; quay trở lại l&agrave;m việc cho&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Microsoft\" title=\"Microsoft\">Microsoft</a>&nbsp;với nhiệm vụ dẫn đắt bộ phận thiết bị di động<sup id=\"cite_ref-Dân_trí_9-0\"><a href=\"https://vi.wikipedia.org/wiki/Nokia#cite_note-D%C3%A2n_tr%C3%AD-9\">[9]</a></sup>. Ng&agrave;y&nbsp;<a href=\"https://vi.wikipedia.org/wiki/25_th%C3%A1ng_4\" title=\"25 tháng 4\">25 th&aacute;ng 4</a>&nbsp;năm&nbsp;<a href=\"https://vi.wikipedia.org/wiki/2014\" title=\"2014\">2014</a>, Nokia tuy&ecirc;n bố ch&iacute;nh thức ho&agrave;n tất thương vụ b&aacute;n bộ phận sản xuất thiết bị cầm tay cho&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Microsoft\" title=\"Microsoft\">Microsoft</a>. Tuy nhi&ecirc;n 2 nh&agrave; m&aacute;y tại&nbsp;<a href=\"https://vi.wikipedia.org/wiki/%E1%BA%A4n_%C4%90%E1%BB%99\" title=\"Ấn Độ\">Ấn Độ</a>&nbsp;v&agrave;&nbsp;<a href=\"https://vi.wikipedia.org/wiki/H%C3%A0n_Qu%E1%BB%91c\" title=\"Hàn Quốc\">H&agrave;n Quốc</a>&nbsp;sẽ nằm ngo&agrave;i thỏa thuận n&agrave;y. Ngo&agrave;i ra do một &quot;kh&uacute;c mắc trong vấn đề thuế&quot; với ch&iacute;nh quyền&nbsp;<a href=\"https://vi.wikipedia.org/wiki/%E1%BA%A4n_%C4%90%E1%BB%99\" title=\"Ấn Độ\">Ấn Độ</a>, Nokia sẽ vận h&agrave;nh nh&agrave; m&aacute;y sản xuất Chennai tại đ&acirc;y l&agrave; như một đơn vị sản xuất hợp đồng cho&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Microsoft\" title=\"Microsoft\">Microsoft</a>. B&ecirc;n cạnh đ&oacute; nh&agrave; sản xuất điện thoại Phần Lan sẽ đ&oacute;ng cửa một nh&agrave; m&aacute;y với 200 nh&acirc;n c&ocirc;ng ở Masan,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/H%C3%A0n_Qu%E1%BB%91c\" title=\"Hàn Quốc\">H&agrave;n Quốc</a><sup id=\"cite_ref-10\"><a href=\"https://vi.wikipedia.org/wiki/Nokia#cite_note-10\">[10]</a></sup>.</p>\r\n','28/11/2022','admin'),(5,'Dell','###   Dell   ###','public/uploads/dell.png','<p><strong>Logo Dell</strong>&nbsp;trải qua hơn 30 năm h&agrave;nh th&agrave;nh, x&acirc;y dựng v&agrave; ph&aacute;t triển đến ng&agrave;y h&ocirc;m nay vẫn giữ biểu tượng logo quen thuộc c&ugrave;ng d&ograve;ng chữ Dell được thiết kế chữ &ldquo;E&rdquo; c&aacute;ch điệu, tạo th&agrave;nh một kiểu chữ xoay nghi&ecirc;ng kh&aacute;c biệt so với c&aacute;c chữ c&ograve;n lại. Giải th&iacute;ch cho&nbsp;<strong>&yacute; nghĩa logo Dell</strong>&nbsp;n&agrave;y, đội ngũ thiết kế cho biết h&atilde;ng muốn thể hiện sự đột ph&aacute;, thể hiện tham vọng muốn thay đổi ng&agrave;nh c&ocirc;ng nghệ m&aacute;y t&iacute;nh của to&agrave;n thế giới bằng ch&iacute;nh những sản phẩm do h&atilde;ng Dell nghi&ecirc;n cứu v&agrave; sản xuất. Kh&ocirc;ng những vậy, thiết kế chữ &ldquo;E&rdquo; độc đ&aacute;o n&agrave;y c&ograve;n, cha đẻ của h&atilde;ng Dell cho biết đ&oacute; l&agrave; ấn &yacute; &ocirc;ng muốn nhấn mạnh tới cụm từ &quot;Turning the world on its ear&rdquo; muốn biến cả thế giới v&agrave;o tay m&igrave;nh.</p>\r\n\r\n<p>B&ecirc;n cạnh đ&oacute;, nếu để &yacute; c&aacute;c phi&ecirc;n bản thi&ecirc;t kế logo của Dell tuy kh&ocirc;ng c&oacute; sự thay đổi nhiều so với tổng thế nhưng để &yacute; kỹ bạn c&oacute; thể nhận ra chữ &ldquo;E&rdquo; đ&atilde; được&nbsp;tạo&nbsp; độ nghi&ecirc;ng nhiều hơn. Bao quanh với chữ Dell được thiết kế độc đ&aacute;o l&agrave; biểu tượng v&ograve;ng tr&ograve;n m&agrave;u xanh biểu tượng cho quả địa cầu, sắc xanh đươc sử dụng cho biểu tượng v&ograve;ng tr&ograve;n b&ecirc;n ngo&agrave;i biểu trưng cho l&ograve;ng nhiệt huyết, sự trung th&agrave;nh, tin cậy, s&aacute;ng tạo v&agrave; đột ph&aacute;. T&iacute;nh đến thời điểm hiện tại, phi&ecirc;n bản&nbsp;<strong>logo Dell</strong>&nbsp;được sử dụng hiện h&agrave;nh l&agrave; phi&ecirc;n bản được thiết kế cuối c&ugrave;ng v&agrave;o năm 2010.</p>\r\n','28/11/2022','admin'),(6,'Hp','###   Hp   ###','public/uploads/hp.png','<p><strong>Giới thiệu HP</strong>: theo Wikipedia,&nbsp;HP l&agrave; t&ecirc;n viết tắt của tập đo&agrave;n Hewlett-Packard. Đ&acirc;y l&agrave; một trong những tập đo&agrave;n thuộc top đầu thế giới về lĩnh vực c&ocirc;ng nghệ th&ocirc;ng tin. C&ocirc;ng ty được th&agrave;nh lập từ năm 1939 bởi Bill Hewlett v&agrave; Dave Packard. Hiện tại, tập đo&agrave;n c&oacute; trụ sở đặt tại Cupertino, California, Hoa Kỳ. Ch&iacute;nh sự th&agrave;nh lập n&agrave;y đ&atilde; khai sinh ra thương hiệu HP nổi tiếng to&agrave;n cầu như hiện nay.</p>\r\n\r\n<p>Tiền th&acirc;n của thương hiệu HP với số vốn ban đầu &iacute;t ỏi, được th&agrave;nh lập l&agrave; một nh&agrave; sản xuất c&aacute;c c&ocirc;ng cụ chuy&ecirc;n dụng cho hệ thống đo lường, kiểm định. Sau một thời gian, c&ocirc;ng ty dần mở rộng quy m&ocirc; với văn ph&ograve;ng lớn hơn v&agrave; bất đầu chuyển hướng kinh doanh, ph&aacute;t triển đa dạng c&aacute;c d&ograve;ng sản phẩm hơn.</p>\r\n\r\n<p>T&iacute;nh đến thời điểm hiện tại, thương hiệu HP đ&atilde; trải qua hơn 80 năm h&igrave;nh th&agrave;nh, x&acirc;y dựng v&agrave; ph&aacute;t triển, để c&oacute; được th&agrave;nh c&ocirc;ng v&agrave; được nhiều người biết đến như ng&agrave;y h&ocirc;m nay, thương hiệu cũng đ&atilde; trải qua nhiều kh&oacute; khăn, th&aacute;ch thức để c&oacute; đạt được th&agrave;nh c&ocirc;ng vang dội.</p>\r\n','28/11/2022','admin'),(8,'Vertu','###   Vertu   ###','public/uploads/vertu.png','<p>No description</p>\r\n','28/11/2022','admin');
+INSERT INTO `tbl_brand` VALUES (1,'Sam Sung ','###   SamSung   ###    ','public/uploads/samsung.png','<p><b>Tập đo&agrave;n Samsung</b>&nbsp;(<a href=\"https://vi.wikipedia.org/wiki/Ti%E1%BA%BFng_Tri%E1%BB%81u_Ti%C3%AAn\" title=\"Tiếng Triều Tiên\">tiếng H&agrave;n</a>: 삼성,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Romaja_qu%E1%BB%91c_ng%E1%BB%AF\" title=\"Romaja quốc ngữ\">Romaja</a>: &quot;Samseong&quot;,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Phi%C3%AAn_%C3%A2m_qu%E1%BB%91c_t%E1%BA%BF\" title=\"Phiên âm quốc tế\">phi&ecirc;n &acirc;m chuẩn</a>: &quot;Xam-x&acirc;ng&quot;,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Hanja\" title=\"Hanja\">Hanja</a>: 三星;&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Phi%C3%AAn_%C3%A2m_H%C3%A1n-Vi%E1%BB%87t\" title=\"Phiên âm Hán-Việt\">phi&ecirc;n &acirc;m H&aacute;n-Việt</a>: &quot;<a href=\"https://vi.wikipedia.org/wiki/Sao\" title=\"Sao\">Tam Tinh</a>&quot; &ndash; c&oacute; nghĩa l&agrave; &quot;<a href=\"https://vi.wikipedia.org/wiki/3_(s%E1%BB%91)\" title=\"3 (số)\">3</a>&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Sao\" title=\"Sao\">ng&ocirc;i sao</a>&quot;) &ndash; l&agrave; một&nbsp;<a href=\"https://vi.wikipedia.org/wiki/T%E1%BA%ADp_%C4%91o%C3%A0n_%C4%91a_qu%E1%BB%91c_gia\" title=\"Tập đoàn đa quốc gia\">tập đo&agrave;n đa quốc gia</a>&nbsp;khổng lồ của&nbsp;<a href=\"https://vi.wikipedia.org/wiki/H%C3%A0n_Qu%E1%BB%91c\" title=\"Hàn Quốc\">H&agrave;n Quốc</a>&nbsp;c&oacute;&nbsp;<a href=\"https://vi.wikipedia.org/wiki/V%C4%83n_ph%C3%B2ng\" title=\"Văn phòng\">tổng h&agrave;nh dinh</a>&nbsp;được đặt tại khu phức hợp&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Samsung_Town\" title=\"Samsung Town\">Samsung Town</a>,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Qu%E1%BA%ADn\" title=\"Quận\">quận</a>&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Seocho-gu\" title=\"Seocho-gu\">Seocho-gu</a>,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Th%C3%A0nh_ph%E1%BB%91\" title=\"Thành phố\">th&agrave;nh phố</a>&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Seoul\" title=\"Seoul\">Seoul</a>.&nbsp;<a href=\"https://vi.wikipedia.org/wiki/T%E1%BA%ADp_%C4%91o%C3%A0n\" title=\"Tập đoàn\">Tập đo&agrave;n</a>&nbsp;n&agrave;y hiện sở hữu rất nhiều&nbsp;<a href=\"https://vi.wikipedia.org/wiki/C%C3%B4ng_ty_l%C3%A9p_v%E1%BB%91n\" title=\"Công ty lép vốn\">c&ocirc;ng ty con</a>,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/H%E1%BB%87_th%E1%BB%91ng\" title=\"Hệ thống\">chuỗi hệ thống</a>&nbsp;<a href=\"https://vi.wikipedia.org/wiki/B%C3%A1n_h%C3%A0ng\" title=\"Bán hàng\">b&aacute;n h&agrave;ng</a>&nbsp;c&ugrave;ng c&aacute;c&nbsp;<a href=\"https://vi.wikipedia.org/wiki/V%C4%83n_ph%C3%B2ng\" title=\"Văn phòng\">văn ph&ograve;ng đại diện</a>&nbsp;tr&ecirc;n phạm vi&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Tr%C3%A1i_%C4%90%E1%BA%A5t\" title=\"Trái Đất\">to&agrave;n cầu</a>, hầu hết đều đang hoạt động dưới&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Nh%C3%A3n_hi%E1%BB%87u\" title=\"Nhãn hiệu\">t&ecirc;n</a>&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Th%C6%B0%C6%A1ng_hi%E1%BB%87u\" title=\"Thương hiệu\">thương hiệu</a>&nbsp;Samsung, đ&acirc;y l&agrave;&nbsp;<a href=\"https://vi.wikipedia.org/wiki/T%E1%BA%ADp_%C4%91o%C3%A0n\" title=\"Tập đoàn\">tập đo&agrave;n</a>&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Chaebol\" title=\"Chaebol\">T&agrave;i phiệt</a>&nbsp;<a href=\"https://vi.wikipedia.org/wiki/%C4%90a_ng%C3%A0nh\" title=\"Đa ngành\">đa ng&agrave;nh</a>&nbsp;(<a href=\"https://vi.wikipedia.org/wiki/Chaebol\" title=\"Chaebol\">Chaebol</a>) c&oacute; quy m&ocirc; v&agrave; tầm ảnh hưởng đến&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Kinh_t%E1%BA%BF_H%C3%A0n_Qu%E1%BB%91c\" title=\"Kinh tế Hàn Quốc\">nền kinh tế</a>&nbsp;lớn nhất tại&nbsp;<a href=\"https://vi.wikipedia.org/wiki/H%C3%A0n_Qu%E1%BB%91c\" title=\"Hàn Quốc\">H&agrave;n Quốc</a>&nbsp;n&oacute;i ri&ecirc;ng v&agrave; đồng thời cũng l&agrave; một trong những&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Th%C6%B0%C6%A1ng_hi%E1%BB%87u\" title=\"Thương hiệu\">thương hiệu</a>&nbsp;<a href=\"https://vi.wikipedia.org/wiki/C%C3%B4ng_ngh%E1%BB%87\" title=\"Công nghệ\">c&ocirc;ng nghệ</a>&nbsp;đắt gi&aacute; bậc nhất tr&ecirc;n&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Th%E1%BA%BF_gi%E1%BB%9Bi\" title=\"Thế giới\">thế giới</a>&nbsp;hiện nay</p>\r\n','28/11/2022','admin '),(2,'Apple','###   Apple   ###','public/uploads/apple.png','<p><b>Apple Inc.</b>&nbsp;l&agrave; một tập đo&agrave;n c&ocirc;ng nghệ của&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Hoa_K%E1%BB%B3\" title=\"Hoa Kỳ\">Mỹ</a>&nbsp;c&oacute; trụ sở ch&iacute;nh đặt tại&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Cupertino,_California\" title=\"Cupertino, California\">Cupertino, California</a>. Apple được th&agrave;nh lập ng&agrave;y&nbsp;<a href=\"https://vi.wikipedia.org/wiki/1_th%C3%A1ng_4\" title=\"1 tháng 4\">1 th&aacute;ng 4</a>&nbsp;năm&nbsp;<a href=\"https://vi.wikipedia.org/wiki/1976\" title=\"1976\">1976</a>&nbsp;dưới t&ecirc;n&nbsp;<b>Apple Computer, Inc.</b>, v&agrave; đổi t&ecirc;n th&agrave;nh&nbsp;<b>Apple Inc.</b>&nbsp;v&agrave;o đầu năm&nbsp;<a href=\"https://vi.wikipedia.org/wiki/2007\" title=\"2007\">2007</a>. Với lượng sản phẩm b&aacute;n ra to&agrave;n cầu h&agrave;ng năm l&agrave; 13,9 tỷ&nbsp;<a href=\"https://vi.wikipedia.org/wiki/%C4%90%C3%B4_la_M%E1%BB%B9\" title=\"Đô la Mỹ\">đ&ocirc; la Mỹ</a>&nbsp;(<a href=\"https://vi.wikipedia.org/wiki/2005\" title=\"2005\">2005</a>), 74 triệu thiết bị iPhone được b&aacute;n ra&nbsp;<b>chỉ trong một qu&yacute; 4</b>&nbsp;năm 2014 v&agrave; c&oacute; hơn 98.000 nh&acirc;n vi&ecirc;n ở nhiều quốc gia, sản phẩm l&agrave;&nbsp;<a href=\"https://vi.wikipedia.org/wiki/M%C3%A1y_t%C3%ADnh_c%C3%A1_nh%C3%A2n\" title=\"Máy tính cá nhân\">m&aacute;y t&iacute;nh c&aacute; nh&acirc;n</a>, phần mềm, phần cứng, thiết bị nghe nhạc v&agrave; nhiều thiết bị đa phương tiện kh&aacute;c. Sản phẩm nổi tiếng nhất l&agrave; m&aacute;y t&iacute;nh&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Apple_Macintosh\" title=\"Apple Macintosh\">Apple Macintosh</a>, m&aacute;y nghe nhạc&nbsp;<a href=\"https://vi.wikipedia.org/wiki/IPod\" title=\"IPod\">iPod</a>&nbsp;(2001), chương tr&igrave;nh nghe nhạc&nbsp;<a href=\"https://vi.wikipedia.org/wiki/ITunes\" title=\"ITunes\">iTunes</a>,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/IPhone\" title=\"IPhone\">điện thoại iPhone</a>&nbsp;(2007),&nbsp;<a href=\"https://vi.wikipedia.org/wiki/IPad\" title=\"IPad\">m&aacute;y t&iacute;nh bảng iPad</a>&nbsp;(2010) v&agrave;&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Apple_Watch\" title=\"Apple Watch\">đồng hồ th&ocirc;ng minh Apple Watch</a>&nbsp;(<a href=\"https://vi.wikipedia.org/wiki/2014\" title=\"2014\">2014</a>) hoạt động tr&ecirc;n nhiều&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Qu%E1%BB%91c_gia\" title=\"Quốc gia\">quốc gia</a>&nbsp;tr&ecirc;n&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Th%E1%BA%BF_gi%E1%BB%9Bi\" title=\"Thế giới\">thế giới</a>.</p>\r\n','28/11/2022','admin'),(3,'Xiaomi','###   Xiaomi   ### ','public/uploads/xiaomi.png','<p>Xiaomi được th&agrave;nh lập v&agrave;o ng&agrave;y&nbsp;<strong>6/4/2010</strong>&nbsp;bởi 7 đối t&aacute;c, trong đ&oacute; c&oacute; ba tổ chức đầu tư lớn l&agrave; tập đo&agrave;n&nbsp;<strong>Temasek</strong>&nbsp;từ Singapore, quỹ&nbsp;<strong>IDG Capital&nbsp;</strong>v&agrave;&nbsp;<strong>Qiming Venture Partners</strong>&nbsp;đến từ Trung Quốc. Đ&acirc;y l&agrave; một tập đo&agrave;n chuy&ecirc;n thiết kế, ph&aacute;t triển v&agrave; b&aacute;n c&aacute;c mẫu smartphone, ứng dụng, đồ điện tử ti&ecirc;u d&ugrave;ng cho thị trường Trung Quốc.</p>\r\n','28/11/2022','admin'),(4,'Nokia','###   Nokia   ###','public/uploads/nokia.png','<p><b>Nokia Corporation</b>&nbsp;(pronunciation&nbsp;<a href=\"https://vi.wikipedia.org/w/index.php?title=Tr%E1%BB%A3_gi%C3%BAp:Pronunciation&amp;action=edit&amp;redlink=1\" title=\"Trợ giúp:Pronunciation (trang chưa được viết)\">/&#39;nɔkiɑ/</a>) (<a href=\"https://vi.wikipedia.org/w/index.php?title=Nasdaq_Nordic&amp;action=edit&amp;redlink=1\" title=\"Nasdaq Nordic (trang chưa được viết)\">Nasdaq Helsinki</a>:&nbsp;<a href=\"http://www.nasdaqomxnordic.com/aktier/microsite?languageId=1&amp;Instrument=HEX24311\" rel=\"nofollow\">NOK1V</a>,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/S%E1%BB%9F_giao_d%E1%BB%8Bch_ch%E1%BB%A9ng_kho%C3%A1n_New_York\" title=\"Sở giao dịch chứng khoán New York\">NYSE</a>:&nbsp;<a href=\"https://www.nyse.com/quote/XNYS:NOK\" rel=\"nofollow\">NOK</a>,&nbsp;<a href=\"https://vi.wikipedia.org/w/index.php?title=S%C3%A0n_giao_d%E1%BB%8Bch_ch%E1%BB%A9ng_kho%C3%A1n_Frankfurt&amp;action=edit&amp;redlink=1\" title=\"Sàn giao dịch chứng khoán Frankfurt (trang chưa được viết)\">FWB</a>:&nbsp;<a href=\"http://deutsche-boerse.com/dbag/dispatch/en/isg/gdb_navigation/home/Content_Files/20_overview_pages/cp_sp_overview_xetra.htm?action=ISGFormProcessingAction&amp;eventSubmit_doSimplestocksearch=true&amp;wp=NOA3&amp;x=0&amp;y=0\" rel=\"nofollow\">NOA3</a>) l&agrave; một tập đo&agrave;n đa quốc gia c&oacute; trụ sở tại&nbsp;<a href=\"https://vi.wikipedia.org/w/index.php?title=Keilaniemi&amp;action=edit&amp;redlink=1\" title=\"Keilaniemi (trang chưa được viết)\">Keilaniemi</a>,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Espoo\" title=\"Espoo\">Espoo</a>, một&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Th%C3%A0nh_ph%E1%BB%91\" title=\"Thành phố\">th&agrave;nh phố</a>&nbsp;l&aacute;ng giềng của thủ đ&ocirc;&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Helsinki\" title=\"Helsinki\">Helsinki</a>,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Ph%E1%BA%A7n_Lan\" title=\"Phần Lan\">Phần Lan</a>. Nokia tập trung v&agrave;o c&aacute;c sản phẩm viễn th&ocirc;ng kh&ocirc;ng d&acirc;y v&agrave; cố định, với 129.746 nh&acirc;n vi&ecirc;n l&agrave;m việc ở 120&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Qu%E1%BB%91c_gia\" title=\"Quốc gia\">quốc gia</a>, b&aacute;n sản phẩm ở hơn 150 quốc gia tr&ecirc;n to&agrave;n cầu v&agrave; đạt doanh số 41 tỷ&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Euro\" title=\"Euro\">euro</a>&nbsp;với lợi tức 1,2 tỷ năm 2009.<sup id=\"cite_ref-AR2009_3-0\"><a href=\"https://vi.wikipedia.org/wiki/Nokia#cite_note-AR2009-3\">[3]</a></sup><sup id=\"cite_ref-Nokia_in_brief_4-0\"><a href=\"https://vi.wikipedia.org/wiki/Nokia#cite_note-Nokia_in_brief-4\">[4]</a></sup>&nbsp;Đ&acirc;y l&agrave; nh&agrave; sản xuất&nbsp;<a href=\"https://vi.wikipedia.org/wiki/%C4%90i%E1%BB%87n_tho%E1%BA%A1i_di_%C4%91%E1%BB%99ng\" title=\"Điện thoại di động\">điện thoại di động</a>&nbsp;lớn nhất thế giới với thị phần to&agrave;n cầu sản phẩm n&agrave;y chiếm khoảng 40% trong qu&yacute; 2 năm 2008, tăng so với mức 38% qu&yacute; 2 năm 2007 v&agrave; tăng từ tỷ lệ 39% li&ecirc;n tục.<sup id=\"cite_ref-Quarter_5-0\"><a href=\"https://vi.wikipedia.org/wiki/Nokia#cite_note-Quarter-5\">[5]</a></sup></p>\r\n\r\n<p>Ng&agrave;y&nbsp;<a href=\"https://vi.wikipedia.org/wiki/3_th%C3%A1ng_9\" title=\"3 tháng 9\">3 th&aacute;ng 9</a>&nbsp;năm&nbsp;<a href=\"https://vi.wikipedia.org/wiki/2013\" title=\"2013\">2013</a>, Nokia c&ocirc;ng bố sẽ b&aacute;n lại bộ phận Thiết bị v&agrave; Dịch vụ cho&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Microsoft\" title=\"Microsoft\">Microsoft</a>&nbsp;với gi&aacute; 5,4 tỷ Euro (7.17 tỷ USD).<sup id=\"cite_ref-6\"><a href=\"https://vi.wikipedia.org/wiki/Nokia#cite_note-6\">[6]</a></sup><sup id=\"cite_ref-verge-msnokia_7-0\"><a href=\"https://vi.wikipedia.org/wiki/Nokia#cite_note-verge-msnokia-7\">[7]</a></sup><sup id=\"cite_ref-mswsj-noki_8-0\"><a href=\"https://vi.wikipedia.org/wiki/Nokia#cite_note-mswsj-noki-8\">[8]</a></sup>&nbsp;Ng&agrave;y&nbsp;<a href=\"https://vi.wikipedia.org/wiki/4_th%C3%A1ng_12\" title=\"4 tháng 12\">4 th&aacute;ng 12</a>&nbsp;năm&nbsp;<a href=\"https://vi.wikipedia.org/wiki/2013\" title=\"2013\">2013</a>,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Li%C3%AAn_minh_ch%C3%A2u_%C3%82u\" title=\"Liên minh châu Âu\">Li&ecirc;n minh ch&acirc;u &Acirc;u</a>&nbsp;đ&atilde; ch&iacute;nh thức k&yacute; v&agrave;o bản chấp thuận thương vụ mua lại n&agrave;y của Microsoft. Sau khi đồng &yacute; b&aacute;n Nokia về Microsoft,&nbsp;<a href=\"https://vi.wikipedia.org/w/index.php?title=CEO_Stephen_Elop&amp;action=edit&amp;redlink=1\" title=\"CEO Stephen Elop (trang chưa được viết)\">CEO Stephen Elop</a>&nbsp;của Nokia đ&atilde; nộp đơn từ chức v&agrave; quay trở lại l&agrave;m việc cho&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Microsoft\" title=\"Microsoft\">Microsoft</a>&nbsp;với nhiệm vụ dẫn đắt bộ phận thiết bị di động<sup id=\"cite_ref-Dân_trí_9-0\"><a href=\"https://vi.wikipedia.org/wiki/Nokia#cite_note-D%C3%A2n_tr%C3%AD-9\">[9]</a></sup>. Ng&agrave;y&nbsp;<a href=\"https://vi.wikipedia.org/wiki/25_th%C3%A1ng_4\" title=\"25 tháng 4\">25 th&aacute;ng 4</a>&nbsp;năm&nbsp;<a href=\"https://vi.wikipedia.org/wiki/2014\" title=\"2014\">2014</a>, Nokia tuy&ecirc;n bố ch&iacute;nh thức ho&agrave;n tất thương vụ b&aacute;n bộ phận sản xuất thiết bị cầm tay cho&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Microsoft\" title=\"Microsoft\">Microsoft</a>. Tuy nhi&ecirc;n 2 nh&agrave; m&aacute;y tại&nbsp;<a href=\"https://vi.wikipedia.org/wiki/%E1%BA%A4n_%C4%90%E1%BB%99\" title=\"Ấn Độ\">Ấn Độ</a>&nbsp;v&agrave;&nbsp;<a href=\"https://vi.wikipedia.org/wiki/H%C3%A0n_Qu%E1%BB%91c\" title=\"Hàn Quốc\">H&agrave;n Quốc</a>&nbsp;sẽ nằm ngo&agrave;i thỏa thuận n&agrave;y. Ngo&agrave;i ra do một &quot;kh&uacute;c mắc trong vấn đề thuế&quot; với ch&iacute;nh quyền&nbsp;<a href=\"https://vi.wikipedia.org/wiki/%E1%BA%A4n_%C4%90%E1%BB%99\" title=\"Ấn Độ\">Ấn Độ</a>, Nokia sẽ vận h&agrave;nh nh&agrave; m&aacute;y sản xuất Chennai tại đ&acirc;y l&agrave; như một đơn vị sản xuất hợp đồng cho&nbsp;<a href=\"https://vi.wikipedia.org/wiki/Microsoft\" title=\"Microsoft\">Microsoft</a>. B&ecirc;n cạnh đ&oacute; nh&agrave; sản xuất điện thoại Phần Lan sẽ đ&oacute;ng cửa một nh&agrave; m&aacute;y với 200 nh&acirc;n c&ocirc;ng ở Masan,&nbsp;<a href=\"https://vi.wikipedia.org/wiki/H%C3%A0n_Qu%E1%BB%91c\" title=\"Hàn Quốc\">H&agrave;n Quốc</a><sup id=\"cite_ref-10\"><a href=\"https://vi.wikipedia.org/wiki/Nokia#cite_note-10\">[10]</a></sup>.</p>\r\n','28/11/2022','admin'),(5,'Dell','###   Dell   ###','public/uploads/dell.png','<p><strong>Logo Dell</strong>&nbsp;trải qua hơn 30 năm h&agrave;nh th&agrave;nh, x&acirc;y dựng v&agrave; ph&aacute;t triển đến ng&agrave;y h&ocirc;m nay vẫn giữ biểu tượng logo quen thuộc c&ugrave;ng d&ograve;ng chữ Dell được thiết kế chữ &ldquo;E&rdquo; c&aacute;ch điệu, tạo th&agrave;nh một kiểu chữ xoay nghi&ecirc;ng kh&aacute;c biệt so với c&aacute;c chữ c&ograve;n lại. Giải th&iacute;ch cho&nbsp;<strong>&yacute; nghĩa logo Dell</strong>&nbsp;n&agrave;y, đội ngũ thiết kế cho biết h&atilde;ng muốn thể hiện sự đột ph&aacute;, thể hiện tham vọng muốn thay đổi ng&agrave;nh c&ocirc;ng nghệ m&aacute;y t&iacute;nh của to&agrave;n thế giới bằng ch&iacute;nh những sản phẩm do h&atilde;ng Dell nghi&ecirc;n cứu v&agrave; sản xuất. Kh&ocirc;ng những vậy, thiết kế chữ &ldquo;E&rdquo; độc đ&aacute;o n&agrave;y c&ograve;n, cha đẻ của h&atilde;ng Dell cho biết đ&oacute; l&agrave; ấn &yacute; &ocirc;ng muốn nhấn mạnh tới cụm từ &quot;Turning the world on its ear&rdquo; muốn biến cả thế giới v&agrave;o tay m&igrave;nh.</p>\r\n\r\n<p>B&ecirc;n cạnh đ&oacute;, nếu để &yacute; c&aacute;c phi&ecirc;n bản thi&ecirc;t kế logo của Dell tuy kh&ocirc;ng c&oacute; sự thay đổi nhiều so với tổng thế nhưng để &yacute; kỹ bạn c&oacute; thể nhận ra chữ &ldquo;E&rdquo; đ&atilde; được&nbsp;tạo&nbsp; độ nghi&ecirc;ng nhiều hơn. Bao quanh với chữ Dell được thiết kế độc đ&aacute;o l&agrave; biểu tượng v&ograve;ng tr&ograve;n m&agrave;u xanh biểu tượng cho quả địa cầu, sắc xanh đươc sử dụng cho biểu tượng v&ograve;ng tr&ograve;n b&ecirc;n ngo&agrave;i biểu trưng cho l&ograve;ng nhiệt huyết, sự trung th&agrave;nh, tin cậy, s&aacute;ng tạo v&agrave; đột ph&aacute;. T&iacute;nh đến thời điểm hiện tại, phi&ecirc;n bản&nbsp;<strong>logo Dell</strong>&nbsp;được sử dụng hiện h&agrave;nh l&agrave; phi&ecirc;n bản được thiết kế cuối c&ugrave;ng v&agrave;o năm 2010.</p>\r\n','28/11/2022','admin'),(6,'Hp','###   Hp   ###','public/uploads/hp.png','<p><strong>Giới thiệu HP</strong>: theo Wikipedia,&nbsp;HP l&agrave; t&ecirc;n viết tắt của tập đo&agrave;n Hewlett-Packard. Đ&acirc;y l&agrave; một trong những tập đo&agrave;n thuộc top đầu thế giới về lĩnh vực c&ocirc;ng nghệ th&ocirc;ng tin. C&ocirc;ng ty được th&agrave;nh lập từ năm 1939 bởi Bill Hewlett v&agrave; Dave Packard. Hiện tại, tập đo&agrave;n c&oacute; trụ sở đặt tại Cupertino, California, Hoa Kỳ. Ch&iacute;nh sự th&agrave;nh lập n&agrave;y đ&atilde; khai sinh ra thương hiệu HP nổi tiếng to&agrave;n cầu như hiện nay.</p>\r\n\r\n<p>Tiền th&acirc;n của thương hiệu HP với số vốn ban đầu &iacute;t ỏi, được th&agrave;nh lập l&agrave; một nh&agrave; sản xuất c&aacute;c c&ocirc;ng cụ chuy&ecirc;n dụng cho hệ thống đo lường, kiểm định. Sau một thời gian, c&ocirc;ng ty dần mở rộng quy m&ocirc; với văn ph&ograve;ng lớn hơn v&agrave; bất đầu chuyển hướng kinh doanh, ph&aacute;t triển đa dạng c&aacute;c d&ograve;ng sản phẩm hơn.</p>\r\n\r\n<p>T&iacute;nh đến thời điểm hiện tại, thương hiệu HP đ&atilde; trải qua hơn 80 năm h&igrave;nh th&agrave;nh, x&acirc;y dựng v&agrave; ph&aacute;t triển, để c&oacute; được th&agrave;nh c&ocirc;ng v&agrave; được nhiều người biết đến như ng&agrave;y h&ocirc;m nay, thương hiệu cũng đ&atilde; trải qua nhiều kh&oacute; khăn, th&aacute;ch thức để c&oacute; đạt được th&agrave;nh c&ocirc;ng vang dội.</p>\r\n','28/11/2022','admin'),(8,'Vertu','###   Vertu   ###','public/uploads/vertu.png','<p>No description</p>\r\n','28/11/2022','admin'),(9,'ALE JEANS','### ALE JEANS ###','public/uploads/vertu.png','<p>No description </p>','24/4/2023','admin');
 /*!40000 ALTER TABLE `tbl_brand` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -128,7 +166,7 @@ CREATE TABLE `tbl_cart` (
 
 LOCK TABLES `tbl_cart` WRITE;
 /*!40000 ALTER TABLE `tbl_cart` DISABLE KEYS */;
-INSERT INTO `tbl_cart` VALUES (11,16,1,34990000),(12,116,1,49990000),(13,999,2,81980000),(14,1000,0,0);
+INSERT INTO `tbl_cart` VALUES (11,16,0,0),(12,116,1,49990000),(13,999,2,81980000),(14,1000,0,0);
 /*!40000 ALTER TABLE `tbl_cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -141,12 +179,12 @@ DROP TABLE IF EXISTS `tbl_category`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_category` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `code` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `description` text NOT NULL,
-  `create_date` varchar(255) NOT NULL,
-  `user` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `create_date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -157,7 +195,7 @@ CREATE TABLE `tbl_category` (
 
 LOCK TABLES `tbl_category` WRITE;
 /*!40000 ALTER TABLE `tbl_category` DISABLE KEYS */;
-INSERT INTO `tbl_category` VALUES (12,'Lap Top','###   LapTop   ###','public/uploads/laptop.jpg','<p>M&aacute;y t&iacute;nh laptop hay m&aacute;y laptop gi&aacute; rẻ vi t&iacute;nh x&aacute;ch tay (tiếng anh laptop computer hay notebook computer) l&agrave; một m&aacute;y t&iacute;nh c&aacute; nh&acirc;n gọn nhỏ c&oacute; thể mang x&aacute;ch được. N&oacute; thường c&oacute; trọng lương nhẹ, t&ugrave;y thuộc v&agrave;o h&atilde;ng sản xuất v&agrave; kiểu m&aacute;y d&agrave;nh cho c&aacute;c mục đ&iacute;ch sử dụng kh&aacute;c nhau.</p>\r\n','28/11/2022','admin'),(13,'Điện Thoại','###   SmartPhone   ###','public/uploads/dienthoai.jpg','<h2 dir=\"ltr\"><strong><a href=\"https://www.thegioididong.com/dtdd\" target=\"_blank\" title=\"smartphone\" type=\"smartphone\">Điện thoại th&ocirc;ng minh</a><strong>&nbsp;</strong>hay n&oacute;i c&aacute;ch kh&aacute;c l&agrave; điện thoại th&ocirc;ng minh, đang trở n&ecirc;n rất phổ biến trong những năm trở lại đ&acirc;y, nhất l&agrave; 2013 v&agrave; 2014. Tuổi teen cũng d&ugrave;ng smartphone, thanh thi&ecirc;n, trung ni&ecirc;n v&agrave; cho đến những người lớn tuổi hầu như ai cũng sử dụng sản phẩm ti&ecirc;n tiến n&agrave;y.</strong></h2>\r\n','28/11/2022','admin'),(14,'Máy Tính Bảng','###   TabLet   ###','public/uploads/tablet.jpg','<p><b>M&aacute;y t&iacute;nh bảng</b>&nbsp;(<a href=\"https://vi.wikipedia.org/wiki/Ti%E1%BA%BFng_Anh\" title=\"Tiếng Anh\">Tiếng Anh</a>: tablet computer hay tablet PC), th&ocirc;ng thường với hệ điều h&agrave;nh di động v&agrave; mạch xử l&yacute; m&agrave;n h&igrave;nh cảm ứng v&agrave; pin c&oacute; thể sạc lại trong một g&oacute;i phẳng, đơn lẻ. M&aacute;y t&iacute;nh bảng l&agrave; một m&aacute;y t&iacute;nh l&agrave;m những g&igrave;&nbsp;<a href=\"https://vi.wikipedia.org/wiki/M%C3%A1y_t%C3%ADnh_c%C3%A1_nh%C3%A2n\" title=\"Máy tính cá nhân\">m&aacute;y t&iacute;nh c&aacute; nh&acirc;n</a>&nbsp;kh&aacute;c l&agrave;m, nhưng thiếu một số khả năng đầu v&agrave;o/đầu ra (I/O) m&agrave; c&aacute;c&nbsp;<a href=\"https://vi.wikipedia.org/wiki/M%C3%A1y_t%C3%ADnh\" title=\"Máy tính\">m&aacute;y t&iacute;nh</a>&nbsp;kh&aacute;c c&oacute;. M&aacute;y t&iacute;nh bảng hiện đại phần lớn giống với&nbsp;<a href=\"https://vi.wikipedia.org/wiki/%C4%90i%E1%BB%87n_tho%E1%BA%A1i_th%C3%B4ng_minh\" title=\"Điện thoại thông minh\">điện thoại th&ocirc;ng minh</a>&nbsp;hiện đại, điểm kh&aacute;c biệt duy nhất l&agrave; m&aacute;y t&iacute;nh bảng tương đối lớn hơn&nbsp;<a href=\"https://vi.wikipedia.org/wiki/%C4%90i%E1%BB%87n_tho%E1%BA%A1i_th%C3%B4ng_minh\" title=\"Điện thoại thông minh\">điện thoại th&ocirc;ng minh</a>, với m&agrave;n h&igrave;nh 7 inch (18cm) hoặc lớn hơn, được đo theo đường ch&eacute;o, v&agrave; c&oacute; thể kh&ocirc;ng hỗ trợ truy cập đến một mạng di động.</p>\r\n','28/11/2022','admin');
+INSERT INTO `tbl_category` VALUES (12,'Lap Top','###   LapTop   ###','public/uploads/laptop.jpg','<p>M&aacute;y t&iacute;nh laptop hay m&aacute;y laptop gi&aacute; rẻ vi t&iacute;nh x&aacute;ch tay (tiếng anh laptop computer hay notebook computer) l&agrave; một m&aacute;y t&iacute;nh c&aacute; nh&acirc;n gọn nhỏ c&oacute; thể mang x&aacute;ch được. N&oacute; thường c&oacute; trọng lương nhẹ, t&ugrave;y thuộc v&agrave;o h&atilde;ng sản xuất v&agrave; kiểu m&aacute;y d&agrave;nh cho c&aacute;c mục đ&iacute;ch sử dụng kh&aacute;c nhau.</p>\r\n','28/11/2022','admin'),(13,'Điện Thoại','###   SmartPhone   ###','public/uploads/dienthoai.jpg','<h2 dir=\"ltr\"><strong><a href=\"https://www.thegioididong.com/dtdd\" target=\"_blank\" title=\"smartphone\" type=\"smartphone\">Điện thoại th&ocirc;ng minh</a><strong>&nbsp;</strong>hay n&oacute;i c&aacute;ch kh&aacute;c l&agrave; điện thoại th&ocirc;ng minh, đang trở n&ecirc;n rất phổ biến trong những năm trở lại đ&acirc;y, nhất l&agrave; 2013 v&agrave; 2014. Tuổi teen cũng d&ugrave;ng smartphone, thanh thi&ecirc;n, trung ni&ecirc;n v&agrave; cho đến những người lớn tuổi hầu như ai cũng sử dụng sản phẩm ti&ecirc;n tiến n&agrave;y.</strong></h2>\r\n','28/11/2022','admin'),(14,'Máy Tính Bảng','###   TabLet   ###','public/uploads/tablet.jpg','<p><b>M&aacute;y t&iacute;nh bảng</b>&nbsp;(<a href=\"https://vi.wikipedia.org/wiki/Ti%E1%BA%BFng_Anh\" title=\"Tiếng Anh\">Tiếng Anh</a>: tablet computer hay tablet PC), th&ocirc;ng thường với hệ điều h&agrave;nh di động v&agrave; mạch xử l&yacute; m&agrave;n h&igrave;nh cảm ứng v&agrave; pin c&oacute; thể sạc lại trong một g&oacute;i phẳng, đơn lẻ. M&aacute;y t&iacute;nh bảng l&agrave; một m&aacute;y t&iacute;nh l&agrave;m những g&igrave;&nbsp;<a href=\"https://vi.wikipedia.org/wiki/M%C3%A1y_t%C3%ADnh_c%C3%A1_nh%C3%A2n\" title=\"Máy tính cá nhân\">m&aacute;y t&iacute;nh c&aacute; nh&acirc;n</a>&nbsp;kh&aacute;c l&agrave;m, nhưng thiếu một số khả năng đầu v&agrave;o/đầu ra (I/O) m&agrave; c&aacute;c&nbsp;<a href=\"https://vi.wikipedia.org/wiki/M%C3%A1y_t%C3%ADnh\" title=\"Máy tính\">m&aacute;y t&iacute;nh</a>&nbsp;kh&aacute;c c&oacute;. M&aacute;y t&iacute;nh bảng hiện đại phần lớn giống với&nbsp;<a href=\"https://vi.wikipedia.org/wiki/%C4%90i%E1%BB%87n_tho%E1%BA%A1i_th%C3%B4ng_minh\" title=\"Điện thoại thông minh\">điện thoại th&ocirc;ng minh</a>&nbsp;hiện đại, điểm kh&aacute;c biệt duy nhất l&agrave; m&aacute;y t&iacute;nh bảng tương đối lớn hơn&nbsp;<a href=\"https://vi.wikipedia.org/wiki/%C4%90i%E1%BB%87n_tho%E1%BA%A1i_th%C3%B4ng_minh\" title=\"Điện thoại thông minh\">điện thoại th&ocirc;ng minh</a>, với m&agrave;n h&igrave;nh 7 inch (18cm) hoặc lớn hơn, được đo theo đường ch&eacute;o, v&agrave; c&oacute; thể kh&ocirc;ng hỗ trợ truy cập đến một mạng di động.</p>\r\n','28/11/2022','admin'),(15,'Quần Nữ','###  Female Jean ###','public/uploads/tablet.jpg','<p>No desscription </p>','24/4/2023','admin');
 /*!40000 ALTER TABLE `tbl_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -172,9 +210,9 @@ CREATE TABLE `tbl_comment` (
   `id` int NOT NULL AUTO_INCREMENT,
   `customer_id` int NOT NULL,
   `product_id` int NOT NULL,
-  `comment` varchar(3000) NOT NULL,
+  `comment` varchar(3000) COLLATE utf8mb4_unicode_ci NOT NULL,
   `refer` int NOT NULL,
-  `create_date` varchar(255) NOT NULL,
+  `create_date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `customer_id` (`customer_id`),
   KEY `product_id` (`product_id`),
@@ -202,13 +240,13 @@ DROP TABLE IF EXISTS `tbl_customer`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_customer` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `fullname` varchar(255) NOT NULL,
-  `mail` varchar(255) NOT NULL,
-  `phone` varchar(10) NOT NULL,
-  `address` text NOT NULL,
-  `create_date` varchar(255) NOT NULL,
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fullname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mail` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `create_date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1001 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -250,7 +288,7 @@ CREATE TABLE `tbl_detail_cart` (
 
 LOCK TABLES `tbl_detail_cart` WRITE;
 /*!40000 ALTER TABLE `tbl_detail_cart` DISABLE KEYS */;
-INSERT INTO `tbl_detail_cart` VALUES (80,11,50,1,34990000),(92,12,48,4,199960000);
+INSERT INTO `tbl_detail_cart` VALUES (92,12,48,6,299940000);
 /*!40000 ALTER TABLE `tbl_detail_cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -297,14 +335,14 @@ CREATE TABLE `tbl_order` (
   `custom_id` int NOT NULL,
   `total_price` float NOT NULL,
   `total_num_product` int NOT NULL,
-  `create_date` varchar(255) NOT NULL,
-  `note` text NOT NULL,
-  `payment_method` varchar(255) NOT NULL,
-  `status` enum('Thành công','Chờ xác nhận','Hủy','') NOT NULL,
+  `create_date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `note` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payment_method` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` enum('Thành công','Chờ xác nhận','Hủy','') COLLATE utf8mb4_unicode_ci NOT NULL,
   `id_cart` int NOT NULL,
-  `time` varchar(255) NOT NULL,
-  `code` varchar(255) NOT NULL,
-  `date_confirm` varchar(255) NOT NULL,
+  `time` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date_confirm` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_cart` (`id_cart`),
   KEY `tbl_order_ibfk_1` (`custom_id`),
@@ -334,24 +372,24 @@ CREATE TABLE `tbl_product` (
   `id` int NOT NULL AUTO_INCREMENT,
   `id_category` int NOT NULL,
   `id_brand` int NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `code` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` float NOT NULL,
   `promotional_price` float NOT NULL,
   `quantity` int NOT NULL,
-  `status` enum('còn hàng','hết hàng','hàng sắp về') NOT NULL,
-  `description` text NOT NULL,
-  `screen` varchar(255) NOT NULL,
-  `ram` varchar(255) NOT NULL,
-  `cpu` varchar(255) NOT NULL,
-  `memory` varchar(255) NOT NULL,
-  `operating_system` varchar(255) NOT NULL,
-  `front_camera` varchar(255) NOT NULL,
-  `rear_camera` varchar(255) NOT NULL,
-  `user` varchar(255) NOT NULL,
-  `create_date` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `level` enum('hot','normal','discount') NOT NULL,
+  `status` enum('còn hàng','hết hàng','hàng sắp về') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `screen` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ram` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cpu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `memory` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `operating_system` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `front_camera` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rear_camera` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `create_date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `level` enum('hot','normal','discount') COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_brand` (`id_brand`),
   KEY `id_category` (`id_category`),
@@ -379,10 +417,10 @@ DROP TABLE IF EXISTS `tbl_slider`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_slider` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `image` varchar(255) NOT NULL,
-  `user` varchar(255) NOT NULL,
-  `create_date` varchar(255) NOT NULL,
-  `type` enum('dọc','ngang') NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `create_date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` enum('dọc','ngang') COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -406,9 +444,9 @@ DROP TABLE IF EXISTS `tbl_store_info`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_store_info` (
   `id` int NOT NULL,
-  `address` varchar(100) DEFAULT NULL,
-  `phone_number` varchar(11) DEFAULT NULL,
-  `email` varchar(45) DEFAULT NULL,
+  `address` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone_number` varchar(11) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -422,6 +460,14 @@ LOCK TABLES `tbl_store_info` WRITE;
 INSERT INTO `tbl_store_info` VALUES (1,'đại học Bách Khoa','123456789','hcmut@gmail.com');
 /*!40000 ALTER TABLE `tbl_store_info` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'store'
+--
+
+--
+-- Dumping routines for database 'store'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -432,4 +478,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-12 13:40:21
+-- Dump completed on 2023-04-24 15:52:00
