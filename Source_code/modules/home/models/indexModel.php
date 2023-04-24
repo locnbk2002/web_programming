@@ -49,5 +49,9 @@ function getAllSlider(){
 }
 
 function getAllJeans() {
-	return db_fetch_array("SELECT * FROM `products` LIMIT 8");
+	return db_fetch_array("SELECT * FROM `products` WHERE cat_id=15 LIMIT 4");
+}
+
+function getAllTShirts() {
+	return db_fetch_array("SELECT * FROM `products` WHERE cat_id=16 LIMIT 4");
 }

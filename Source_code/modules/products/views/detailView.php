@@ -42,7 +42,7 @@
             </div>
             <div class="section" id="post-product-wp">
                 <div class="section-head">
-                    <h3 class="section-title">Mô tả sản phẩm</h3>
+                    <h3 class="section-title">Chi tiết</h3>
                 </div>
                 <div class="section-detail">
                     <?php  echo $data['1']['detail']; ?>
