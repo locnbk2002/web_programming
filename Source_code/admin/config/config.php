@@ -11,7 +11,7 @@ session_start();
  * 
  */
 
-$config['base_url'] = "http://localhost/STORE/admin/";
+$config['base_url'] = "http://localhost/web_programming/Source_code/admin/";
 //admin/modules/home
 $config['default_module'] = 'home';
 $config['default_controller'] = 'index';
