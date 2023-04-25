@@ -21,37 +21,14 @@
                                 <label for="product-code">Mã sản phẩm</label>
                                 <input type="text" name="code" id="product-code" style="display: block;width: 300px;">
                                 <label for="price">Giá sản phẩm</label>
-                                <input type="text" name="price" id="price" style="display: block;width: 300px;">
-                                <label for="price">Giá khuyến mãi</label>
-                                <input type="text" name="promotional_price" id="price" style="display: block;width: 300px;">
+                                <input type="text" name="price" id="price" style="display: block;width: 300px;">                               
                                 <label for="price">Số lượng</label>
                                 <input type="text" name="quantity" id="price" style="display: block;width: 300px;">
-                                <label for="price">Người tạo</label>
-                                <input type="text" name="user" id="price" style="display: block;width: 300px;">
+                                <label for="price">Chi tiết sản phẩm</label>
+                                <input type="text" name="detail" id="price" style="display: block;width: 300px;">
                             </div>
-                            <div style="width: 400px;">
-                                <label for="price">Màn hình</label>
-                                <input type="text" name="screen" id="price" style="display: block;width: 300px;">
-                                <label for="price">Ram</label>
-                                <input type="text" name="ram" id="price" style="display: block;width: 300px;">
-                                <label for="price">Cpu</label>
-                                <input type="text" name="cpu" id="price" style="display: block;width: 300px;">
-                                <label for="price">Bộ nhớ</label>
-                                <input type="text" name="memory" id="price" style="display: block;width: 300px;">
-                                <label for="price">Hệ điều hành</label>
-                                <input type="text" name="operating_system" id="price" style="display: block;width: 300px;">
-                                <label for="price">Camera trước</label>
-                                <input type="text" name="front_camera" id="price" style="display: block;width: 300px;">
-                                <label for="price">Camera sau</label>
-                                <input type="text" name="rear_camera" id="price" style="display: block;width: 300px;">
-                        </div>
                         <div style="width: 400px;">
-                                <label for="status">Độ hot sản phẩm</label>
-                                <select name="level" style="display: block;width: 300px;">
-                                    <option value="hot">sản phẩm hot</option>
-                                    <option value="normal"> sản phẩm bình thường</option>
-                                    <option value="discount">sản phẩm giảm giá</option>
-                                </select>
+                                
                                 <label for="status">Trạng thái</label>
                                 <select name="status" style="display: block;width: 300px;">
                                     <option value="còn hàng">còn hàng</option>
@@ -59,13 +36,13 @@
                                     <option value="hàng sắp về">hàng sắp về</option>
                                 </select>
                                 <label for="category ">Danh mục sản phẩm</label>
-                                <select name="id_category" style="display: block;width: 300px;">
+                                <select name="cat_id" style="display: block;width: 300px;">
                                     <?php if(!empty($data)) foreach ($data[0] as  $value) { ?>
                                     <option value="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></option>
                                     <?php }; ?>
                                 </select>
                                 <label for="brand">Thương hiệu sản phẩm</label>
-                                <select name="id_brand" style="display: block;width: 300px;">
+                                <select name="brand_id" style="display: block;width: 300px;">
                                     <?php if(!empty($data)) foreach ($data[1] as  $value) { ?>
                                     <option value="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></option>
                                     <?php }; ?>
