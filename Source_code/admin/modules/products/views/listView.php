@@ -44,14 +44,10 @@
                                     <td><span class="thead-text">Hình ảnh</span></td>
                                     <td><span class="thead-text">Tên sản phẩm</span></td>
                                     <td><span class="thead-text">Giá</span></td>
-                                    <td><span class="thead-text">Khuyến mại</span></td>
                                     <td><span class="thead-text">Số lượng</span></td>
                                     <td><span class="thead-text">Trạng thái</span></td>
-                                    <td><span class="thead-text">Độ hot</span></td>
                                     <td><span class="thead-text">Danh mục</span></td>
                                     <td><span class="thead-text">Thương hiệu</span></td>
-                                    <td><span class="thead-text">Người tạo</span></td>
-                                    <td><span class="thead-text">Thời gian</span></td>
                                     <td><span class="thead-text">Hoàn tác</span></td>
                                 </tr>
                             </thead>
@@ -69,14 +65,10 @@
                                     </td>
                                     <td><span class="tbody-text"><?php echo $value['name']; ?></span></td>
                                     <td><span class="tbody-text"><?php echo $value['price']; ?></span></td>
-                                    <td><span class="tbody-text"><?php echo $value['promotional_price']; ?></span></td>
                                     <td><span class="tbody-text"><?php echo $value['quantity']; ?></span></td>
                                     <td><span class="tbody-text"><?php echo $value['status']; ?></span></td>
-                                    <td><span class="tbody-text"><?php echo $value['level']; ?></span></td>
                                     <td><span class="tbody-text"><?php echo $value['category']; ?></span></td>
                                     <td><span class="tbody-text"><?php echo $value['brand']; ?></span></td>
-                                    <td><span class="tbody-text"><?php echo $value['user']; ?></span></td>
-                                    <td><span class="tbody-text"><?php echo $value['create_date']; ?></span></td>
                                     <td>
                                         <ul class="list-operation ">
                                             <li><a href="?modules=products&controllers=index&action=edit&id=<?php echo $value['id'] ;?>" title="Sửa" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>

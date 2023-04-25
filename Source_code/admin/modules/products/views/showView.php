@@ -23,37 +23,16 @@
                                 <input type="text" name="code" id="product-code" value="<?php echo $value['code']; ?>" style="display: block;width: 300px;">
                                 <label for="price">Giá sản phẩm</label>
                                 <input type="text" name="price" id="price" value="<?php echo $value['price']; ?>" style="display: block;width: 300px;">
-                                <label for="price">Giá khuyến mãi</label>
-                                <input type="text" name="promotional_price" id="price" value="<?php echo $value['promotional_price']; ?>" style="display: block;width: 300px;">
                                 <label for="price">Số lượng</label>
                                 <input type="text" name="quantity" id="price" value="<?php echo $value['quantity']; ?>" style="display: block;width: 300px;">
-                                <label for="price">Người tạo</label>
-                                <input type="text" name="user" id="price" value="<?php echo $value['user']; ?>" style="display: block;width: 300px;">
-                                <label for="price">Độ hot sản phẩm</label>
-                                <input type="text" name="level" id="price" value="<?php echo $value['level']; ?>" style="display: block;width: 300px;">
+                                
     
                             </div>
-                            <div style="width: 400px;">
-                                <label for="price">Màn hình</label>
-                                <input type="text" name="screen" id="price" value="<?php echo $value['screen']; ?>" style="display: block;width: 300px;">
-                                <label for="price">Ram</label>
-                                <input type="text" name="ram" id="price" value="<?php echo $value['ram']; ?>" style="display: block;width: 300px;">
-                                <label for="price">Cpu</label>
-                                <input type="text" name="cpu" id="price" value="<?php echo $value['cpu']; ?>" style="display: block;width: 300px;">
-                                <label for="price">Bộ nhớ</label>
-                                <input type="text" name="memory" id="price" value="<?php echo $value['memory']; ?>" style="display: block;width: 300px;">
-                                <label for="price">Hệ điều hành</label>
-                                <input type="text" name="operating_system" id="price" value="<?php echo $value['operating_system']; ?>" style="display: block;width: 300px;">
-                                <label for="price">Camera trước</label>
-                                <input type="text" name="front_camera" id="price" value="<?php echo $value['front_camera']; ?>" style="display: block;width: 300px;">
-                                <label for="price">Camera sau</label>
-                                <input type="text" name="rear_camera" id="price" value="<?php echo $value['rear_camera']; ?>" style="display: block;width: 300px;">
-                          </div>
+                            
                           <div style="width: 400px;">
                             <label for="price">Trạng thái</label>
                                 <input type="text" name="status" id="price" value="<?php echo $value['status']; ?>" style="display: block;width: 300px;">
-                                <label for="price">Ngày đăng</label>
-                                <input type="text" name="create_date" id="price" value="<?php echo $value['create_date']; ?>" style="display: block;width: 300px;">
+                        
                                 <label>Hình ảnh</label>
                                 <div id="uploadFile">
                                     <input type="file" name="image" id="upload-thumb">
