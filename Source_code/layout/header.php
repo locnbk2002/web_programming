@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>SMART SHOP XL</title>
+    <title>FAST SHOPPING</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./public/images/logoweb.png" type="image/x-icon">
@@ -59,7 +59,7 @@
                                     <a href="?modules=users&action=logout" title="">Đăng xuất</a>
                                 <?php
                                 } else { ?>
-                                    <a href="?modules=users&action=index" title="">Đăng kí</a>
+                                    <a href="?modules=users&action=createAccount" title="">Đăng kí</a>
                                 <?php }; ?>
                             </span>
                         </div>
