@@ -18,21 +18,12 @@ function addAction() {
 	$name;
 	$code;
 	$price;
-	$promotional_price;
 	$quantity;
 	$status;
 	$description;
-	$screen;
-	$ram;
-	$cpu;
-	$memory;
-	$operating_system;
-	$front_camera;
-	$rear_camera;
 	$user;
 	$create_date;
 	$image;
-	$level;
 	$err = array();
 	if(!empty($_POST['btn_submit'])){
 
@@ -40,12 +31,6 @@ function addAction() {
 			$id_category = $_POST['id_category'];
 		}else{
 			$err['id_category'] = "id_category không được rỗng";		
-		}
-
-		if(!empty($_POST['level'])){
-			$level = $_POST['level'];
-		}else{
-			$err['level'] ="level không được rỗng";		
 		}
 
 		if(!empty($_POST['id_brand'])){
@@ -72,12 +57,6 @@ function addAction() {
 			$err['price'] ="price không được rỗng";		
 		}
 
-		if(!empty($_POST['promotional_price'])){
-			$promotional_price = $_POST['promotional_price'];
-		}else{
-			$price = "";
-		}
-
 		if(!empty($_POST['quantity'])){
 			$quantity = $_POST['quantity'];
 		}else{
@@ -96,54 +75,12 @@ function addAction() {
 			$err['description'] ="description không được rỗng";
 		}
 
-		if(!empty($_POST['screen'])){
-			$screen = $_POST['screen'];
+		if(!empty($_POST['detail'])){
+			$detail = $_POST['detail'];
 		}else{
-			$err['screen'] ="screen không được rỗng";
+			$err['detail'] ="detail không được rỗng";
 		}
-
-		if(!empty($_POST['ram'])){
-			$ram = $_POST['ram'];
-		}else{
-			$err['ram'] ="ram không được rỗng";
-		}
-
-		if(!empty($_POST['cpu'])){
-			$cpu = $_POST['cpu'];
-		}else{
-			$err['cpu'] ="cpu không được rỗng";
-		}
-
-		if(!empty($_POST['memory'])){
-			$memory = $_POST['memory'];
-		}else{
-			$err['memory'] ="memory không được rỗng";
-		}
-
-		if(!empty($_POST['operating_system'])){
-			$operating_system = $_POST['operating_system'];
-		}else{
-			$err['operating_system'] ="operating_system không được rỗng";
-		}
-
-		if(!empty($_POST['front_camera'])){
-			$front_camera = $_POST['front_camera'];
-		}else{
-			$err['front_camera'] ="front_camera không được rỗng";
-		}
-
-		if(!empty($_POST['rear_camera'])){
-			$rear_camera = $_POST['rear_camera'];
-		}else{
-			$err['rear_camera'] ="rear_camera không được rỗng";
-		}
-
-		if(!empty($_POST['user'])){
-			$user = $_POST['user'];
-		}else{
-			$err['user'] ="user không được rỗng";
-		}
-
+		
 		////// ảnh
 		$target_dir = "public/uploads/";
 		$target_file = $target_dir . basename($_FILES["image"]["name"]);
@@ -163,10 +100,12 @@ function addAction() {
 
 		if (file_exists($target_file)) {
 		  $uploadOk = 0;
+		  echo " <script type='text/javascript'> alert('true');</script>";
 		}
 
 		if ($_FILES["image"]["size"] > 200000000) {
 		  $uploadOk = 0;
+		  
 		}
 
 		if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
@@ -175,10 +114,13 @@ function addAction() {
 		}
 
 		if ($uploadOk == 0) {
+			
 		} else {
 		  if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+			
 			if (copy($target_file, $target_file_web_uploads)) {
 				$image = $target_dir. basename( $_FILES["image"]["name"]);
+				
 			}
 		  } 
 		}
@@ -186,42 +128,28 @@ function addAction() {
 			$err['image'] = "image không được rỗng";
 		}
 		if(empty($err)){
-		$create_date = date("d/m/Y",time());
-		$res = [
-			'id_category ' =>$id_category ,
-			'id_brand ' =>$id_brand ,
-			'name' =>$name,
-			'code' =>$code,
-			'price' =>$price,
-			'promotional_price' => $promotional_price,
-			'quantity' => $quantity,
-			'status' => $status,
-			'description' => $description,
-			'screen' => $screen,
-			'ram' => $ram,
-			'cpu' => $cpu,
-			'memory' => $memory,
-			'operating_system' => $operating_system,
-			'front_camera' => $front_camera,
-			'rear_camera' => $rear_camera,
-			'user' => $user,
-			'create_date' => $create_date,
-			'image' => $image,
-			'level' => $level
+			$res = [
+				'cat_id ' =>$id_category ,
+				'brand_id' =>$id_brand ,
+				'name' =>$name,
+				'code' =>$code,
+				'price' =>$price,
+				'quantity' => $quantity,
+				'status' => $status,
+				'detail' => $detail,
+				'image' => $image,
+				'description' => $description
+			];
 
-		];
-			if(insert_product($res)){
-				
-	        	echo " <script type='text/javascript'> alert('Thêm mới thành công');</script>";
-			}else{
-				
-	        	echo " <script type='text/javascript'> alert('Thêm mới danh mục sản phẩm thất bại');</script>";
+			if(insert_product($res)){			
+				echo " <script type='text/javascript'> alert('Thêm mới thành công');</script>";
+			}else{		
+				echo " <script type='text/javascript'> alert('Thêm mới danh mục sản phẩm thất bại');</script>";
 			}
-
 		}
-		else{
-			
-	        echo " <script type='text/javascript'> alert('Thêm mới danh mục sản phẩm thất bại');</script>";
+		else{			
+	        // echo " <script type='text/javascript'> alert('Thêm mới danh mục sản phẩm thất bại');</script>";
+			print_r(array_values($err));
 		}
 
 	}
