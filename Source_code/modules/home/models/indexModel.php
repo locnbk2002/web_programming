@@ -34,7 +34,7 @@ function getAllLaptop(){
 
 function getAllHot(){
 
-	return db_fetch_array("SELECT * FROM `tbl_product` WHERE `level` = 'hot' ");
+	return db_fetch_array("SELECT * FROM `products` WHERE `quantity` > '9' ");
 
 }
 

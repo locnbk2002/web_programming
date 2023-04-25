@@ -94,7 +94,7 @@ function deletecart(){
 
 function getProductDetailById($id){
 
-	$data = db_fetch_row("SELECT * FROM `tbl_product` WHERE `id`=$id");
+	$data = db_fetch_row("SELECT * FROM `products` WHERE `id`=$id");
 	return $data;
 }
 
