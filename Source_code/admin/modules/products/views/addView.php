@@ -11,9 +11,7 @@
             </div>
             <div class="section" id="detail-page">
                 <div class="section-detail">
-
-                    <form method="POST" action="?modules=products&controllers=index&action=add" enctype="multipart/form-data"">
-
+                    <form method="POST" action="?modules=products&controllers=index&action=add" enctype="multipart/form-data">
                         <div style=" display: flex;">
                             <div style="width: 400px;">
                                 <label for="product-name">Tên sản phẩm</label>
@@ -46,28 +44,34 @@
                                     <?php if(!empty($data)) foreach ($data[1] as  $value) { ?>
                                     <option value="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></option>
                                     <?php }; ?>
-                                </select>
-                                
+                                </select>         
                                 <label>Hình ảnh</label>
                                 <div id="uploadFile">
                                     <input type="file" name="image" id="upload-thumb">
                                     <img src="public/images/img-thumb.png">
                                 </div>
-                        </div>
-                        </div>
+                            </div>         
+                        </div> 
                         <label for="desc">Mô tả sản phẩm</label>
-                        <textarea name="description" id="desc" class="ckeditor"></textarea>
-                        
-                        <input type="submit" name="btn_submit" id="btn-submit" value="Thêm mới" style="height: 40px;
-                                                                                                border-radius: 60px;
-                                                                                                width: 150px;
-                                                                                                color: green;
-                                                                                                border-color: white;
-                                                                                                color: white;
-                                                                                                background-color: #48ad48;">
-
+                        <input type="text" name="description" id="desc" style="display: block;width: 100%;" maxlength=255> 
+                        <label for="detail">Chi tiết</label>
+                        <textarea name="detail" id="detail" class="ckeditor"></textarea>
+                        <input
+                            type="submit"
+                            name="btn_submit"
+                            id="btn-submit"
+                            value="Thêm mới"
+                            style="
+                                height: 40px;
+                                border-radius: 60px;
+                                width: 150px;
+                                color: green;
+                                border-color: white;
+                                color: white;
+                                background-color: #48ad48;
+                            "
+                        />              
                     </form>
-
                 </div>
             </div>
         </div>

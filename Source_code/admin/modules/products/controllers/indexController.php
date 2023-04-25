@@ -55,7 +55,6 @@ function addAction() {
 			$err['price'] ="price không được rỗng";		
 		}
 
-
 		if(!empty($_POST['quantity'])){
 			$quantity = $_POST['quantity'];
 		}else{
@@ -99,10 +98,12 @@ function addAction() {
 
 		if (file_exists($target_file)) {
 		  $uploadOk = 0;
+		  echo " <script type='text/javascript'> alert('true');</script>";
 		}
 
 		if ($_FILES["image"]["size"] > 200000000) {
 		  $uploadOk = 0;
+		  
 		}
 
 		if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
@@ -111,10 +112,13 @@ function addAction() {
 		}
 
 		if ($uploadOk == 0) {
+			
 		} else {
 		  if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+			
 			if (copy($target_file, $target_file_web_uploads)) {
 				$image = $target_dir. basename( $_FILES["image"]["name"]);
+				
 			}
 		  } 
 		}
@@ -134,20 +138,17 @@ function addAction() {
 			'detail' => $detail,
 			'image' => $image,
 			'description' => $description
-
 		];
-			if(insert_product($res)){
-				
-	        	echo " <script type='text/javascript'> alert('Thêm mới thành công');</script>";
-			}else{
-				
-	        	echo " <script type='text/javascript'> alert('Thêm mới danh mục sản phẩm thất bại');</script>";
-			}
 
+			if(insert_product($res)){			
+				echo " <script type='text/javascript'> alert('Thêm mới thành công');</script>";
+			}else{		
+				echo " <script type='text/javascript'> alert('Thêm mới danh mục sản phẩm thất bại');</script>";
+			}
 		}
-		else{
-			
-	        echo " <script type='text/javascript'> alert('Thêm mới danh mục sản phẩm thất bại');</script>";
+		else{			
+	        // echo " <script type='text/javascript'> alert('Thêm mới danh mục sản phẩm thất bại');</script>";
+			print_r(array_values($err));
 		}
 
 	}
