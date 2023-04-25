@@ -1,16 +1,5 @@
 <div id="sidebar" class="fl-left">
     <ul id="sidebar-menu">
-       <li class="nav-item">
-            <a href="" title="" class="nav-link nav-toggle">
-                <span class="fa fa-map icon"></span>
-                <span class="title">Quản lý đóng góp</span>
-            </a>
-            <ul class="sub-menu">
-                <li class="nav-item">
-                    <a href="?modules=home" title="" class="nav-link aha">Danh sách</a>
-                </li>
-            </ul> 
-        </li>
         <li class="nav-item">
             <a href="" title="" class="nav-link nav-toggle">
                 <span class="fa fa-pencil-square-o icon"></span>
