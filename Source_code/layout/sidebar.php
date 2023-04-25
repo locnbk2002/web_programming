@@ -6,13 +6,13 @@
         <div class="secion-detail">
             <ul class="list-item">
                 <li>
-                    <a href="?modules=products&controllers=index&action=show&id_cat=13" title="dien_thoai">Điện Thoại</a>
+                    <a href="?modules=products&controllers=index&action=show&id_cat=15" title="">Jean nữ</a>
                 </li>
                 <li>
-                    <a href="?modules=products&controllers=index&action=show&id_cat=14" title="">Máy Tính Bảng</a>
+                    <a href="?modules=products&controllers=index&action=show&id_cat=16" title="">Áo thun nữ</a>
                 </li>
                 <li>
-                    <a href="?modules=products&controllers=index&action=show&id_cat=12" title="">Laptop</a>
+                    <a href="?modules=products&controllers=index&action=show&id_cat=17" title="">Áo thun nam</a>
                 </li>
             </ul>
         </div>

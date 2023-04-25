@@ -4,52 +4,19 @@
             <h3 class="section-title">Danh mục sản phẩm</h3>
         </div>
         <div class="secion-detail">
-             <ul class="list-item">
+            <ul class="list-item">
                 <li>
-                    <a href="?modules=products&controllers=index&action=show&id_cat=13" title="">Điện Thoại</a>
-                 <!--   <ul class="sub-menu">
-                                <li>
-                                    <a href="?page=category_product" title="">Iphone</a>
-                                </li>
-                                <li>
-                                    <a href="?page=category_product" title="">Samsung</a>
-                                </li>
-                                <li>
-                                    <a href="?page=category_product" title="">Oppo</a>
-                                </li>
-                
-                            </ul> -->
+                    <a href="?modules=products&controllers=index&action=show&id_cat=15" title="">Jean nữ</a>
                 </li>
                 <li>
-                    <a href="?modules=products&controllers=index&action=show&id_cat=14" title="">Máy Tính Bảng</a>
-                   <!-- <ul class="sub-menu">
-                                <li>
-                                    <a href="?page=category_product" title="">Iphone</a>
-                                </li>
-                                <li>
-                                    <a href="?page=category_product" title="">Samsung</a>
-                                </li>
-                                <li>
-                                    <a href="?page=category_product" title="">Oppo</a>
-                                </li>
-                
-                            </ul> -->
+                    <a href="?modules=products&controllers=index&action=show&id_cat=15" title="">Jean nam</a>
                 </li>
                 <li>
-                    <a href="?modules=products&controllers=index&action=show&id_cat=12" title="">Lap Top</a>
-                   <!-- <ul class="sub-menu">
-                                <li>
-                                    <a href="?page=category_product" title="">Dell</a>
-                                </li>
-                                <li>
-                                    <a href="?page=category_product" title="">MacBook</a>
-                                </li>
-                                <li>
-                                    <a href="?page=category_product" title="">Hp</a>
-                                </li>
-                            </ul> -->
+                    <a href="?modules=products&controllers=index&action=show&id_cat=16" title="">Áo thun nữ</a>
                 </li>
-               
+                <li>
+                    <a href="?modules=products&controllers=index&action=show&id_cat=17" title="">Áo thun nam</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -67,24 +34,24 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="radio" name="r-price" id="r-price1" value="0,500000"></td>
-                            <td><label for="r-price1">Dưới 500.000đ</label></td>
+                            <td><input type="radio" name="r-price" id="r-price1" value="0,100000"></td>
+                            <td><label for="r-price1">Dưới 100.000đ</label></td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="r-price" id="r-price2" value="500000,1000000"></td>
-                            <td><label for="r-price2">500.000đ - 1.000.000đ</label></td>
+                            <td><input type="radio" name="r-price" id="r-price2" value="100000,200000"></td>
+                            <td><label for="r-price2">100.000đ - 200.000đ</label></td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="r-price" id="3" value="1000000,5000000"></td>
-                            <td><label for="3">1.000.000đ - 5.000.000đ</label></td>
+                            <td><input type="radio" name="r-price" id="3" value="200000,400000"></td>
+                            <td><label for="3">200.000đ - 400.000đ</label></td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="r-price" id="4" value="5000000,10000000"></td>
-                            <td><label for="4">5.000.000đ - 10.000.000đ</label></td>
+                            <td><input type="radio" name="r-price" id="4" value="400000,600000"></td>
+                            <td><label for="4">400.000đ - 600.000đ</label></td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="r-price" id="5" value="10000000,100000000"></td>
-                            <td><label for="5">Trên 10.000.000đ</label></td>
+                            <td><input type="radio" name="r-price" id="5" value="600000,100000000"></td>
+                            <td><label for="5">Trên 600.000đ</label></td>
                         </tr>
                     </tbody>
                 </table>
@@ -96,20 +63,20 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="radio" name="r-brand" id="i1" value="2"></td>
-                            <td><label for="i1">Apple</label></td>
+                            <td><input type="radio" name="r-brand" id="i1" value="12"></td>
+                            <td><label for="i1">CAN DE BLANC</label></td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="r-brand" id="i2" value="1"></td>
-                            <td><label for="i2">SamSung</label></td>
+                            <td><input type="radio" name="r-brand" id="i2" value="9"></td>
+                            <td><label for="i2">ALE JEANS</label></td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="r-brand" id="i3" value="3"></td>
-                            <td><label for="i3">Sony</label></td>
+                            <td><input type="radio" name="r-brand" id="i3" value="10"></td>
+                            <td><label for="i3">Eco Jean</label></td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="r-brand" id="i4" value="4"></td>
-                            <td><label for="i4">Nokia</label></td>
+                            <td><input type="radio" name="r-brand" id="i4" value="11"></td>
+                            <td><label for="i4">IMAGINE U</label></td>
                         </tr>
                     </tbody>
                 </table>
@@ -121,16 +88,20 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="radio" name="r-category" id="a1" value="13"></td>
-                            <td><label for="a1">Điện thoại</label></td>
+                            <td><input type="radio" name="r-category" id="a1" value="15"></td>
+                            <td><label for="a1">Jean nữ</label></td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="r-category" id="a2" value="14"></td>
-                            <td><label for="a2">Máy tính bảng</label></td>
+                            <td><input type="radio" name="r-category" id="a2" value="15"></td>
+                            <td><label for="a2">Jean name</label></td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="r-category" id="a3" value="12"></td>
-                            <td><label for="a3">Laptop</label></td>
+                            <td><input type="radio" name="r-category" id="a3" value="16"></td>
+                            <td><label for="a3">Áo thun nữ</label></td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="r-category" id="a3" value="17"></td>
+                            <td><label for="a3">Áo thun nam</label></td>
                         </tr>
                     </tbody>
                 </table>

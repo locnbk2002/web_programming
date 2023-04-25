@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>MANAGER SMARTSHOP XL</title>
+        <title>MANAGER FAST SHOPPING</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="public/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -20,7 +20,7 @@
             <div id="container">
                 <div id="header-wp">
                     <div class="wp-inner clearfix">
-                        <a href="?modules=home" title="" id="logo" class="fl-left">SMART SHOP XL</a>
+                        <a href="?modules=home" title="" id="logo" class="fl-left">FAST SHOPPING</a>
                         <ul id="main-menu" class="fl-left">
                             <li>
                                 <a href="?modules=home" title="">Trang chủ</a>
@@ -50,7 +50,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="" title="">Bán hàng</a>
+                                <a href="?modules=orders&controllers=index&action=listNo" title="">Bán hàng</a>
                                 <ul class="sub-menu">
                                     <li>
                                         <a href="?modules=orders&controllers=index&action=list" title="">Đơn hàng thành công</a> 
