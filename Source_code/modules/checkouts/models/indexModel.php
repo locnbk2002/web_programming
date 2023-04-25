@@ -22,7 +22,7 @@ function getListOrderByIDOrder($id){
 
 function getProductByID($id){
 
-	return db_fetch_row("SELECT * FROM `tbl_product` WHERE `id` = '$id'");
+	return db_fetch_row("SELECT * FROM `products` WHERE `id` = '$id'");
 }
 
 
