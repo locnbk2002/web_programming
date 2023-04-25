@@ -167,7 +167,7 @@ CREATE TABLE `tbl_cart` (
 
 LOCK TABLES `tbl_cart` WRITE;
 /*!40000 ALTER TABLE `tbl_cart` DISABLE KEYS */;
-INSERT INTO `tbl_cart` VALUES (11,16,0,0),(12,116,1,49990000),(13,999,2,81980000),(14,1000,0,0);
+INSERT INTO `tbl_cart` VALUES (11,16,3,0),(12,116,1,49990000),(13,999,2,81980000),(14,1000,0,0);
 /*!40000 ALTER TABLE `tbl_cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -277,10 +277,10 @@ CREATE TABLE `tbl_detail_cart` (
   `sub_total_price` float NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_cart` (`id_cart`),
-  KEY `id_product` (`id_product`),
+  KEY `tbl_detail_cart_ibfk_2` (`id_product`),
   CONSTRAINT `tbl_detail_cart_ibfk_1` FOREIGN KEY (`id_cart`) REFERENCES `tbl_cart` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `tbl_detail_cart_ibfk_2` FOREIGN KEY (`id_product`) REFERENCES `tbl_product` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  CONSTRAINT `tbl_detail_cart_ibfk_2` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -289,7 +289,7 @@ CREATE TABLE `tbl_detail_cart` (
 
 LOCK TABLES `tbl_detail_cart` WRITE;
 /*!40000 ALTER TABLE `tbl_detail_cart` DISABLE KEYS */;
-INSERT INTO `tbl_detail_cart` VALUES (92,12,48,6,299940000);
+INSERT INTO `tbl_detail_cart` VALUES (96,11,7,3,0);
 /*!40000 ALTER TABLE `tbl_detail_cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -479,4 +479,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-25 11:04:36
+-- Dump completed on 2023-04-25 12:23:08
