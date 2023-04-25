@@ -21,11 +21,6 @@ function addAction() {
 	$quantity;
 	$status;
 	$description;
-<<<<<<< HEAD
-	$user;
-	$create_date;
-=======
->>>>>>> 880273e7caf5f656e6f9eec7c656cc031ee45d53
 	$image;
 	$err = array();
 	if(!empty($_POST['btn_submit'])){
@@ -60,10 +55,6 @@ function addAction() {
 			$err['price'] ="price không được rỗng";		
 		}
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 880273e7caf5f656e6f9eec7c656cc031ee45d53
 		if(!empty($_POST['quantity'])){
 			$quantity = $_POST['quantity'];
 		}else{
@@ -83,19 +74,11 @@ function addAction() {
 		}
 
 		if(!empty($_POST['detail'])){
-<<<<<<< HEAD
-			$detail = $_POST['detail'];
-		}else{
-			$err['detail'] ="detail không được rỗng";
-		}
-		
-=======
 			$description = $_POST['detail'];
 		}else{
 			$err['detail'] ="detail không được rỗng";
 		}
 
->>>>>>> 880273e7caf5f656e6f9eec7c656cc031ee45d53
 		////// ảnh
 		$target_dir = "public/uploads/";
 		$target_file = $target_dir . basename($_FILES["image"]["name"]);
@@ -143,20 +126,6 @@ function addAction() {
 			$err['image'] = "image không được rỗng";
 		}
 		if(empty($err)){
-<<<<<<< HEAD
-			$res = [
-				'cat_id ' =>$id_category ,
-				'brand_id' =>$id_brand ,
-				'name' =>$name,
-				'code' =>$code,
-				'price' =>$price,
-				'quantity' => $quantity,
-				'status' => $status,
-				'detail' => $detail,
-				'image' => $image,
-				'description' => $description
-			];
-=======
 		$create_date = date("d/m/Y",time());
 		$res = [
 			'cat_id ' =>$cat_id ,
@@ -169,7 +138,7 @@ function addAction() {
 			'detail' => $detail,
 			'image' => $image,
 			'description' => $description
->>>>>>> 880273e7caf5f656e6f9eec7c656cc031ee45d53
+		];
 
 			if(insert_product($res)){			
 				echo " <script type='text/javascript'> alert('Thêm mới thành công');</script>";
