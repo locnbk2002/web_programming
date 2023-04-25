@@ -48,10 +48,14 @@ function getAllSlider(){
 
 }
 
-function getAllJeans() {
+function getAllFJeans() {
 	return db_fetch_array("SELECT * FROM `products` WHERE cat_id=15 LIMIT 4");
 }
 
-function getAllTShirts() {
+function getAllFTShirts() {
 	return db_fetch_array("SELECT * FROM `products` WHERE cat_id=16 LIMIT 4");
+}
+
+function getAllMTShirts() {
+	return db_fetch_array("SELECT * FROM `products` WHERE cat_id=17 LIMIT 4");
 }
