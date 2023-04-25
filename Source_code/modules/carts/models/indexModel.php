@@ -126,7 +126,7 @@ function getCartByCustomer($id_customer){
 			foreach ($dataProductIncart as $value) {
 
 				$id_product = $value['id_product'];
-				$productes = db_fetch_row("SELECT * FROM `tbl_product` WHERE `id` = $id_product");
+				$productes = db_fetch_row("SELECT * FROM `products` WHERE `id` = $id_product");
 
 				$_SESSION['cart']['buy'][$id_product] = [
 

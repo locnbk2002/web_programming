@@ -17,10 +17,10 @@
                         <p>KTX khu A ĐHQG, Đông Hòa, Dĩ An, Bình Dương</p>
                     </li>
                     <li>
-                        <p>0123498765 - 0918333444</p>
+                        <p>19001008</p>
                     </li>
                     <li>
-                        <p>smartshopXL@gmail.com</p>
+                        <p>nemo@gmail.com</p>
                     </li>
                 </ul>
             </div>

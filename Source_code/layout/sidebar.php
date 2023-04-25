@@ -9,10 +9,10 @@
                     <a href="?modules=products&controllers=index&action=show&id_cat=16" title="">Áo thun nữ</a>
                 </li>
                 <li>
-                    <a href="?modules=products&controllers=index&action=show&id_cat=15" title="">Jean nữ</a>
+                    <a href="?modules=products&controllers=index&action=show&id_cat=17" title="">Áo thun nam</a>
                 </li>
                 <li>
-                    <a href="?modules=products&controllers=index&action=show&id_cat=17" title="">Áo thun nam</a>
+                    <a href="?modules=products&controllers=index&action=show&id_cat=15" title="">Jean nữ</a>
                 </li>
                 <li>
                     <a href="?modules=products&controllers=index&action=show&id_cat=18" title="">Jeans nam</a>
