@@ -59,3 +59,7 @@ function getAllFTShirts() {
 function getAllMTShirts() {
 	return db_fetch_array("SELECT * FROM `products` WHERE cat_id=17 LIMIT 4");
 }
+
+function getAllMJeans() {
+	return db_fetch_array("SELECT * FROM `products` WHERE cat_id=18 LIMIT 4");
+}
