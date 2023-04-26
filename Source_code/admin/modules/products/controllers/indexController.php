@@ -98,7 +98,7 @@ function addAction() {
 
 		if (file_exists($target_file)) {
 		  $uploadOk = 0;
-		  echo " <script type='text/javascript'> alert('true');</script>";
+		//   echo " <script type='text/javascript'> alert('true');</script>";
 		}
 
 		if ($_FILES["image"]["size"] > 200000000) {
