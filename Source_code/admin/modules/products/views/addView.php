@@ -22,8 +22,6 @@
                                 <input type="text" name="price" id="price" style="display: block;width: 300px;">                               
                                 <label for="price">Số lượng</label>
                                 <input type="text" name="quantity" id="price" style="display: block;width: 300px;">
-                                <label for="price">Chi tiết sản phẩm</label>
-                                <input type="text" name="detail" id="price" style="display: block;width: 300px;">
                             </div>
                         <div style="width: 400px;">
                                 
