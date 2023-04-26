@@ -21,7 +21,7 @@ function getAllDetailOrderNo($id_order){
 
 function getProductInOrder($id_product){
 
-	return db_fetch_row("SELECT * FROM `tbl_product` WHERE `id` ='$id_product'");
+	return db_fetch_row("SELECT * FROM `products` WHERE `id` ='$id_product'");
 
 }
 
@@ -53,13 +53,13 @@ function updateQtyProduct($id,$qty){
 	$product = getProductById($id);
 	$qty = (int)$product['quantity'] - (int)$qty;
 	$data = ['id' => $id, 'quantity' =>$qty];
-	return db_update("tbl_product", $data, "`id` = '$id'");
+	return db_update("products", $data, "`id` = '$id'");
 }
 
 
 function getProductById($id){
 
-	return db_fetch_row("SELECT * FROM `tbl_product` WHERE `id` ='$id'");
+	return db_fetch_row("SELECT * FROM `products` WHERE `id` ='$id'");
 }
 
 

@@ -21,15 +21,6 @@
             </div>
 
         </div>
-        <div class="section" id="order-review-wp">
-            <div class="section-head">
-                <h1 class="section-title">Giới thiệu</h1>
-            </div>
-            <div class="section-detail">
-
-                
-            </div>
-        </div>
     </div>
 </div>	
 <?php get_footer(); ?>

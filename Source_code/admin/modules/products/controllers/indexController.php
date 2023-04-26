@@ -74,7 +74,7 @@ function addAction() {
 		}
 
 		if(!empty($_POST['detail'])){
-			$description = $_POST['detail'];
+			$detail = $_POST['detail'];
 		}else{
 			$err['detail'] ="detail không được rỗng";
 		}
