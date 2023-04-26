@@ -43,7 +43,7 @@ function detailStoryAction(){
 		$product = getProductByID($data[$i]['id_product']);
 		$data[$i]['image'] = $product['image'];
 		$data[$i]['name'] = $product['name'];
-		$data[$i]['price'] = $product['promotional_price'];
+		$data[$i]['price'] = $product['price'];
 		$data[$i]['code'] = $product['code'];
 
 	}
